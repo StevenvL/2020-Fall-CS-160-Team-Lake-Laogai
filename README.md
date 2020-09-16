@@ -1,9 +1,9 @@
-#CS 160 Project PokeBoba
+# CS 160 Project PokeBoba
 
-##Pre-requisite
+## Pre-requisite
 Install nodeJS and npm
 
-##Getting Started
+## Getting Started
 Download the whole project from github repo, type the following in command line:
 ```
 git https://github.com/StevenvL/2020-Fall-CS-160-Team-Lake-Laogai
@@ -20,7 +20,7 @@ cd <frontend/backend>
 npm start
 ```
 
-##Project Architecture (*******tentative version)
+## Project Architecture (*******tentative version)
 ```
 root
 |_frontend
@@ -32,7 +32,7 @@ root
   
 ```
 
-##Useful Resources
+## Useful Resources
 ExpressJS and MySQL connection setup example
 ```
 https://github.com/bezkoder/nodejs-express-sequelize-mysql
