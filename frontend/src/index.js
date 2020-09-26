@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import ConnectionTest from './ConnectionTest'
+import App from './App';
 
 ReactDOM.render(
-	<ConnectionTest />,
+	<App />,
   	document.getElementById('root')
 );
 
