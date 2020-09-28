@@ -23,9 +23,9 @@ function Header(){
                     <Nav.Link href="/forums">Forums</Nav.Link>
                     <Nav.Link href="/blogs">Blog</Nav.Link>
                     <Nav.Link href="/findStore">Find a store</Nav.Link>
-                    <Nav.Link href="/owner">Store Owner View</Nav.Link>
+                    {/* <Nav.Link href="/owner">Store Owner View</Nav.Link> */}
                 </Nav>                
-                <Button variant="outline-success" href="/login">Log in</Button>
+                <Button variant="outline" href="/login">Log in</Button>
             </Navbar.Collapse>
         </Navbar>
     )

@@ -10,3 +10,60 @@ body{
     text-align: center;
     background-color: white;
 }
+
+.login-container{
+    text-align: center;
+    margin-top: 2%;
+    max-width: 50%;
+    padding: 5%;
+    background-color: white;
+}
+
+.search-boba{
+    background-image: url("/boba.jpg");
+    color: white;
+    background-size: cover;
+    text-align: center;
+}
+
+.search-form{
+    padding: 5%;
+}
+
+.jumbotron{
+    margin-top: 2%;
+}
+.form{
+    text-align: left;
+    padding: 2%;
+}
+
+.card{
+    text-align: left;
+    padding: 2%;
+}
+
+.home-image{
+    width: 500px;
+    height: 300px;
+}
+
+.home-text{
+    text-align: left;
+}
+
+.btn-normal{
+    background-color: #DE57C4;
+    color: white;
+    margin: 1%;
+}
+
+.btn-outline{
+    border-color: #DE57C4;
+    color: #DE57C4;
+}
+
+.btn-outline:hover{
+    background-color: #DE57C4;
+    color: white;
+}

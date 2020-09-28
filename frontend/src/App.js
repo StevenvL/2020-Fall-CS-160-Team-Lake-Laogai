@@ -7,7 +7,6 @@ import Owner from './components/Owner'
 import FindStore from './components/FindStore'
 import SignUp from './components/SignUp'
 import Login from './components/Login'
-import { Container } from 'react-bootstrap'
 import { BrowserRouter, Switch, Route} from 'react-router-dom';
 
 
@@ -16,15 +15,15 @@ function App() {
     <BrowserRouter>
       <Header />  
         <Switch>
-          <Container className="componentBody">
-          <Route path="/" exact component={Home} />
-          <Route path="/forums" component={Forums} />
-          <Route path="/blogs" component={Blogs} />
-          <Route path="/owner" component={Owner} />
-          <Route path="/findStore" component={FindStore} />
-          <Route path="/login" component={Login}/>
-          <Route path="signUp" component={SignUp} />
-          </Container>        
+          <div>
+            <Route path="/" exact component={Home} />
+            <Route path="/forums" component={Forums} />
+            <Route path="/blogs" component={Blogs} />
+            <Route path="/owner" component={Owner} />
+            <Route path="/findStore" component={FindStore} />
+            <Route path="/login" component={Login}/>
+            <Route path="/signUp" component={SignUp} />
+          </div>        
         </Switch>            
     </BrowserRouter>
     
