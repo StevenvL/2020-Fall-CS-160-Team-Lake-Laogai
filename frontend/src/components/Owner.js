@@ -1,9 +1,7 @@
-import React from 'react';
+import React from "react";
 
-function Owner(){
-    return(
-        <h1>Owner Page</h1>
-    )
+function Owner() {
+  return <h1>Owner Page</h1>;
 }
 
 export default Owner;

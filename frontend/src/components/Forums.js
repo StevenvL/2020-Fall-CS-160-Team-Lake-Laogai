@@ -1,9 +1,7 @@
-import React from 'react';
+import React from "react";
 
-function Forums(){
-    return(
-        <h1>Forums</h1>
-    )
+function Forums() {
+  return <h1>Forums</h1>;
 }
 
 export default Forums;
