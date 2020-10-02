@@ -1,5 +1,4 @@
 var express = require('express');
-// bring mysql, require mysql module
 var mysql = require('mysql');
 
 
