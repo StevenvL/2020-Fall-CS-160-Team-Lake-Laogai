@@ -1,7 +1,6 @@
 var express = require('express');
 // bring mysql, require mysql module
 var mysql = require('mysql');
-var connection = require('./database');
 
 
 // create mysql connection
@@ -17,7 +16,7 @@ var db = mysql.createConnection({
 
 // connect
 db.connect((err) => {
-  if (!err){
+  if (err){
     //throw err;
     //console.error('Error connecting: ' + err.stack);
     console.log("Sorry, An error occurs for Mysql connection.");
