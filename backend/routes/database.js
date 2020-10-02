@@ -8,8 +8,9 @@ var db = mysql.createConnection({
   user: 'root',
   password: 'cs160boba!',
   //database: 'pokemyql',
-  port: '3306',
-  database: 'PokeBobaDB'
+  //port: '3306',
+  database: 'PokeBobaDB',
+  multipleStatements: true
 
 });
 
@@ -17,10 +18,11 @@ var db = mysql.createConnection({
 db.connect((err) => {
   if (err){
     //throw err;
-    //console.error('Error connecting: ' + err.stack);
+    console.error('Error connecting: ' + err.stack);
     console.log("Sorry, An error occurs for Mysql connection.");
+  } else {
+    console.log('Mysql Connected!');
   }
-  console.log('Mysql Connected!');
 });
 
 
