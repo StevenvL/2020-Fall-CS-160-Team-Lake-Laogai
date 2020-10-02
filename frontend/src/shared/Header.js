@@ -1,28 +1,25 @@
 import React from "react";
-import Navbar from "react-bootstrap";
-import Button from "react-bootstrap";
-import Nav from "react-bootstrap";
+import Navbar from "react-bootstrap/Navbar";
+import Button from "react-bootstrap/Button";
+import Nav from "react-bootstrap/Nav";
 import { NavLink } from "react-router-dom";
 import logo from "../images/pokeboba_logo.svg";
 
-function Nav() {
+function Header() {
   return (
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand>
-        <NavLink to="/">
-          <img
-            src={logo}
-            alt="Site Logo. PokeBoba"
-            className="d-inline-block align-top"
-          />{" "}
-          Pokeboba
-        </NavLink>
+      <Navbar.Brand href="/">
+        <img
+          src={logo}
+          alt="Site Logo. PokeBoba"
+          className="d-inline-block align-top"
+        />{" "}
+        Pokeboba
       </Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
           <Nav.Link>
-            <NavLink to="/home">Home</NavLink>
+            <NavLink to="/">Home</NavLink>
           </Nav.Link>
           <Nav.Link>
             <NavLink to="/forums">Forums</NavLink>
@@ -45,4 +42,4 @@ function Nav() {
   );
 }
 
-export default Nav;
+export default Header;
