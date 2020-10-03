@@ -1,6 +1,5 @@
 // get express, get the server running!
 const express = require("express");
-const mysql = require("mysql");
 
 // include other dependencies
 const parser = require("body-parser");
@@ -21,23 +20,6 @@ app.use(logger("dev"));
 
 // // app.use the router
 // app.use("/api", songsRouter);
-
-// Creating a connection to the database
-const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "jennyroot",
-  database: "pokeboba",
-  multipleStatements: true,
-});
-
-connection.connect((err) => {
-  if (!err) {
-    console.log("Connected!");
-  } else {
-    console.log("Connect failed!", err);
-  }
-});
 
 // set port
 app.set("port", process.env.PORT || 4000);
