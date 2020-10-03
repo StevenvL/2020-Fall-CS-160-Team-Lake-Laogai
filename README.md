@@ -23,15 +23,24 @@ cd <frontend/backend>
 npm start
 ```
 
-## Project Architecture (*******tentative version)
+## Project Architecture 
 ```
 root
 |_frontend
   |_src (stores index and components, we could organized them to different sub folder)
+    |_index.js      (Root for rendering the application, No need to modify on this)
+    |_App.js        (Render view according to the route)
+    |_components
+      |_Home.js    (Render homepage view)
+      |_Login.js   (Render login view)
+      |_ ....
   
 |_backend
   |_app.js
+  |_sql_conn.js  (creating connection to sql and sql login information)
   |_routes (control routing)
+    |_ users.js (in charge of all CRUD operation related to user)
+    |_ .... 
   
 ```
 
