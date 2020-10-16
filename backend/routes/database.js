@@ -1,17 +1,15 @@
-var express = require('express');
+//var express = require('express');
 var mysql = require('mysql');
 
 
 // create mysql connection
 var db = mysql.createConnection({
   host: 'localhost',
-  user: 'root',
-  password: 'cs160boba!',
-  //database: 'pokemyql',
-  //port: '3306',
+  user: 'poke',
+  password: '1234',
   database: 'PokeBobaDB',
+  port: '3306',
   multipleStatements: true
-
 });
 
 // connect
@@ -26,11 +24,11 @@ db.connect((err) => {
 });
 
 
-// set express server
-var router = express();
+// // set express server
+// var router = express();
 
-router.get('/', function(req, res, next) {
-    res.send('DB works properly');
-});
+// router.get('/', function(req, res, next) {
+//     res.send('DB works properly');
+// });
 
-module.exports = router;
+module.exports = db;
