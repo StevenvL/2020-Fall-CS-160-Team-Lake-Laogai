@@ -67,3 +67,13 @@ body{
     background-color: #DE57C4;
     color: white;
 }
+
+.btn-filter{
+    background-color: #DE57C4;
+    color: white;
+}
+
+.btn-filter:focus{
+    background-color: red;
+    color: white;
+}

@@ -5,7 +5,7 @@ let connection = mysql.createConnection({
   host: '127.0.0.1',
   user: 'laogai',
   password: 'boba',
-  database: 'pokeboba',
+  database: 'pokebobaschema',
   port: '3306'
 });
 
