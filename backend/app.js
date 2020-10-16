@@ -8,7 +8,7 @@ var cors = require('cors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 //database route
-var databaseRouter = require('./routes/database');
+//var databaseRouter = require('./routes/database');
 //testAPI
 var testAPIRouter = require('./routes/testAPI');
 
@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/database', databaseRouter);
+//app.use('/database', databaseRouter);
 app.use('/testAPI', testAPIRouter)
 
 
