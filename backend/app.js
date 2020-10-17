@@ -8,6 +8,7 @@ var cors = require('cors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var storesRouter = require('./routes/stores');
+
 //database route
 //var databaseRouter = require('./routes/database');
 //testAPI
