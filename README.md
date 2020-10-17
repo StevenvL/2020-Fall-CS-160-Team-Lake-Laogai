@@ -50,5 +50,5 @@ ExpressJS and MySQL connection setup example
 https://github.com/bezkoder/nodejs-express-sequelize-mysql
 ```
 
-
+test
  
