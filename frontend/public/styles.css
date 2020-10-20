@@ -56,7 +56,9 @@ body {
   color: white;
 }
 
+/*******************/
 /* Find store page */
+/*                 */
 .search-boba {
   background-image: url("/boba.jpg");
   color: white;
@@ -66,7 +68,6 @@ body {
 }
 
 .search-form {
-  /* border: 1px solid red; */
   padding: 5%;
   display: flex;
   border-radius: 20px;
@@ -78,7 +79,9 @@ body {
   border: gray;
   box-shadow: none;
   border-radius: 10px 0px 0px 10px;
-  padding: 20px 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
 }
 
 .form-control:focus {
@@ -91,7 +94,6 @@ body {
 }
 
 .searchButton {
-  /* border: 1px solid red; */
   width: 25px;
   height: 25px;
   background: url("/search-solid.svg");
@@ -105,7 +107,7 @@ body {
   padding: 10px;
 }
 
-.btn-filter {
+.filterButton {
   background-color: #ff8c61;
   color: white;
   border-color: #ff8c61;
@@ -116,13 +118,13 @@ body {
   border-left: none;
 }
 
-.btn-filter:hover {
+.filterButton:hover {
   background-color: #190e4f;
   color: white;
   border-color: #190e4f;
 }
 
-.btn-filter:focus {
+.filterButton:focus {
   background-color: #190e4f;
   color: white;
   box-shadow: none;

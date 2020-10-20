@@ -25,12 +25,12 @@ function FindStore() {
       </Jumbotron>
 
       <ButtonGroup size="lg" className="mb-2 filterButtons">
-        <Button className="btn-filter button1">Organic</Button>
-        <Button className="btn-filter">Black Tea</Button>
-        <Button className="btn-filter">Green Tea</Button>
-        <Button className="btn-filter">Alternative Milk</Button>
-        <Button className="btn-filter">Oolong Tea</Button>
-        <Button className="btn-filter">Brown Sugar</Button>
+        <Button className="filterButton button1">Organic</Button>
+        <Button className="filterButton">Black Tea</Button>
+        <Button className="filterButton">Green Tea</Button>
+        <Button className="filterButton">Alternative Milk</Button>
+        <Button className="filterButton">Oolong Tea</Button>
+        <Button className="filterButton">Brown Sugar</Button>
       </ButtonGroup>
 
       {dummyStores.map(function (name, index) {
