@@ -1,79 +1,113 @@
 html {
-    height: 100%;
-}
-body{
-    background: linear-gradient(174.48deg, #FD749B -12.41%, #281AC8 88.56%);
+  height: 100;
 }
 
-.componentBody{
-    margin-top: 2%;
-    text-align: center;
-    background-color: white;
+body {
+  background: linear-gradient(#fd749b, #281ac8);
+  background-repeat: no-repeat;
+  /* background: linear-gradient(174.48deg, #fd749b -12.41%, #281ac8 88.56%); */
 }
 
-.login-container{
-    text-align: center;
-    margin-top: 2%;
-    max-width: 50%;
-    padding: 5%;
-    background-color: white;
+.componentBody {
+  margin-top: 2%;
+  text-align: center;
+  background-color: white;
 }
 
-.search-boba{
-    background-image: url("/boba.jpg");
-    color: white;
-    background-size: cover;
-    text-align: center;
+.login-container {
+  text-align: center;
+  margin-top: 2%;
+  max-width: 50%;
+  padding: 5%;
+  background-color: white;
 }
 
-.search-form{
-    padding: 5%;
+.search-boba {
+  background-image: url("/boba.jpg");
+  color: white;
+  background-size: cover;
+  text-align: center;
 }
 
-.jumbotron{
-    margin-top: 2%;
-}
-.form{
-    text-align: left;
-    padding: 2%;
+.search-form {
+  padding: 5%;
 }
 
-.card{
-    text-align: left;
-    padding: 2%;
+.jumbotron {
+  margin-top: 2%;
+}
+.form {
+  text-align: left;
+  padding: 2%;
 }
 
-.home-image{
-    width: 500px;
-    height: 300px;
+.card {
+  text-align: left;
+  padding: 2%;
 }
 
-.home-text{
-    text-align: left;
+.home-image {
+  width: 500px;
+  height: 300px;
 }
 
-.btn-normal{
-    background-color: #DE57C4;
-    color: white;
-    margin: 1%;
+.home-text {
+  text-align: left;
 }
 
-.btn-outline{
-    border-color: #DE57C4;
-    color: #DE57C4;
+.btn-normal {
+  background-color: #de57c4;
+  color: white;
+  margin: 1%;
 }
 
-.btn-outline:hover{
-    background-color: #DE57C4;
-    color: white;
+.btn-outline {
+  border-color: #de57c4;
+  color: #de57c4;
 }
 
-.btn-filter{
-    background-color: #DE57C4;
-    color: white;
+.btn-outline:hover {
+  background-color: #de57c4;
+  color: white;
 }
 
-.btn-filter:focus{
-    background-color: red;
-    color: white;
+/* Find store page */
+.filterButtons {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.btn-filter {
+  background-color: #ff8c61;
+  color: white;
+  border-color: #ff8c61;
+  border-left: 2px solid #4e5283;
+}
+
+.button1 {
+  border-left: none;
+}
+
+.btn-filter:hover {
+  background-color: #190e4f;
+  color: white;
+  border-color: #190e4f;
+}
+
+.btn-filter:focus {
+  background-color: #190e4f;
+  color: white;
+  box-shadow: none;
+  border-color: #190e4f;
+}
+
+.singleStoreDiv {
+  border: 1px solid gold;
+  max-width: 600px;
+  height: 300px;
+  padding: 20px;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
