@@ -22,20 +22,6 @@ body {
   background-color: white;
 }
 
-.search-boba {
-  background-image: url("/boba.jpg");
-  color: white;
-  background-size: cover;
-  text-align: center;
-}
-
-.search-form {
-  padding: 5%;
-}
-
-.jumbotron {
-  margin-top: 2%;
-}
 .form {
   text-align: left;
   padding: 2%;
@@ -58,7 +44,6 @@ body {
 .btn-normal {
   background-color: #de57c4;
   color: white;
-  margin: 1%;
 }
 
 .btn-outline {
@@ -72,6 +57,48 @@ body {
 }
 
 /* Find store page */
+.search-boba {
+  background-image: url("/boba.jpg");
+  color: white;
+  background-size: cover;
+  text-align: center;
+  margin-top: 2%;
+}
+
+.search-form {
+  /* border: 1px solid red; */
+  padding: 5%;
+  display: flex;
+  border-radius: 20px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.form-control {
+  border: gray;
+  box-shadow: none;
+  border-radius: 10px 0px 0px 10px;
+  padding: 20px 10px;
+}
+
+.form-control:focus {
+  border: gray;
+  box-shadow: none;
+}
+
+.btn {
+  border-radius: 0px 10px 10px 0px;
+}
+
+.searchButton {
+  /* border: 1px solid red; */
+  width: 25px;
+  height: 25px;
+  background: url("/search-solid.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .filterButtons {
   display: flex;
   flex-wrap: wrap;
@@ -104,7 +131,7 @@ body {
 
 .singleStoreDiv {
   border: 1px solid gold;
-  max-width: 600px;
+  max-width: 700px;
   height: 300px;
   padding: 20px;
   margin: 0 auto;

@@ -10,12 +10,12 @@ function FindStore() {
       <Jumbotron className="search-boba">
         <form className="col-lg-6 offset-lg-3 search-form" action="POST">
           <input
-            className="form-control mb-2 mr-sm-2"
+            className="form-control"
             type="search"
-            placeholder="Search Boba Store"
+            placeholder="Find Boba Store"
           />
-          <button className="btn btn-normal my-2 my-sm-0" type="submit">
-            Search
+          <button className="btn btn-normal my-sm-0" type="submit">
+            <div className="searchButton"></div>
           </button>
         </form>
       </Jumbotron>
@@ -31,7 +31,7 @@ function FindStore() {
 
       {dummyStores.map(function (name, index) {
         return (
-          <div className="singleStoreDiv">
+          <div className="singleStoreDiv" key={index}>
             <Link to={`/stores/${name}`}>{name}</Link>
           </div>
         );
