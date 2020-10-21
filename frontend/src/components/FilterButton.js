@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 function FilterButton({ name, index }) {
   const [isClicked, setIsClicked] = useState(false);
-  let active = isClicked ? "active" : "";
+  let active = isClicked ? "filterBtnClicked" : "";
 
   return (
     <button
