@@ -1,9 +1,21 @@
 import React from "react";
-import { Container, Jumbotron, Button, ButtonGroup } from "react-bootstrap";
+import { Container, Jumbotron, ButtonGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import FilterButton from "../components/FilterButton";
 
 function FindStore() {
   const dummyStores = ["store1", "store2"];
+  const drinkTypeArr = [
+    "Organic",
+    "Black Tea",
+    "Green Tea",
+    "Alternative Milk",
+    "Oolong Tea",
+    "Brown Sugar",
+  ];
+  let filterButtons = drinkTypeArr.map((type, index) => {
+    return <FilterButton name={type} key={index} index={index} />;
+  });
 
   return (
     <Container>
@@ -25,12 +37,8 @@ function FindStore() {
       </Jumbotron>
 
       <ButtonGroup size="lg" className="mb-2 filterButtons">
-        <Button className="filterButton button1">Organic</Button>
-        <Button className="filterButton">Black Tea</Button>
-        <Button className="filterButton">Green Tea</Button>
-        <Button className="filterButton">Alternative Milk</Button>
-        <Button className="filterButton">Oolong Tea</Button>
-        <Button className="filterButton">Brown Sugar</Button>
+        {/* <Button className="filterButton button1">Organic</Button> */}
+        {filterButtons}
       </ButtonGroup>
 
       {dummyStores.map(function (name, index) {
