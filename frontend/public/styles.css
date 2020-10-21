@@ -120,7 +120,7 @@ body {
   justify-content: center;
 }
 
-.active {
+.filterBtnClicked {
   background-color: #190e4f;
   color: white;
   box-shadow: none;
