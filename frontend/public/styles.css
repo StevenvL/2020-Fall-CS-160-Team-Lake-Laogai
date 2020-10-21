@@ -104,31 +104,38 @@ body {
 .filterButtons {
   display: flex;
   flex-wrap: wrap;
-  padding: 10px;
+  padding: 20px 0;
 }
 
 .filterButton {
   background-color: #ff8c61;
   color: white;
-  border-color: #ff8c61;
+  font-weight: bold;
+  border: none;
   border-left: 2px solid #4e5283;
+  padding: 15px 5px;
+  display: flex;
+  flex: 1 1 auto;
+  text-align: center;
+  justify-content: center;
 }
 
-.button1 {
-  border-left: none;
-}
-
-.filterButton:hover {
-  background-color: #190e4f;
-  color: white;
-  border-color: #190e4f;
-}
-
-.filterButton:focus {
+.active {
   background-color: #190e4f;
   color: white;
   box-shadow: none;
   border-color: #190e4f;
+  border-left: 2px solid #ff8c61;
+}
+
+.button0 {
+  border-left: none;
+}
+
+.filterButton:focus,
+.filterButton:active {
+  box-shadow: none;
+  outline: none;
 }
 
 .singleStoreDiv {
