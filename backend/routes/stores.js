@@ -1,7 +1,9 @@
 /*Stores Info Backend APIs*/
+
 var express = require('express');
 var router = express.Router();
 var connection = require('../sql_conn');
+
 
 /* GET all stores */
 /* When user select nothing from the search box or filter, this function retrieves all the stores in the database*/
@@ -72,6 +74,5 @@ router.get('/zip/:zip', function(req, res, next) {
   	res.json(results);
   });
 });
-
 
 module.exports = router;

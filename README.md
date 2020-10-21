@@ -1,8 +1,12 @@
 # CS 160 Project PokeBoba
 
 ## Introduction
+<<<<<<< HEAD
 PokeBoba is a social networking application for milk tea enthusiasts who want an organized
 platform to connect with others and to obtain information regarding milk tea drinks.
+=======
+PokeBoba is a social networking application for milk tea enthusiasts who want an organized platform to connect with others and to obtain information regarding milk tea drinks.
+>>>>>>> main-branch
 
 ## Pre-requisite
 Install nodeJS and npm

@@ -1,69 +1,149 @@
 html {
-    height: 100%;
-}
-body{
-    background: linear-gradient(174.48deg, #FD749B -12.41%, #281AC8 88.56%);
+  height: 100;
 }
 
-.componentBody{
-    margin-top: 2%;
-    text-align: center;
-    background-color: white;
+body {
+  background: linear-gradient(#fd749b, #281ac8);
+  background-repeat: no-repeat;
+  /* background: linear-gradient(174.48deg, #fd749b -12.41%, #281ac8 88.56%); */
 }
 
-.login-container{
-    text-align: center;
-    margin-top: 2%;
-    max-width: 50%;
-    padding: 5%;
-    background-color: white;
+.componentBody {
+  margin-top: 2%;
+  text-align: center;
+  background-color: white;
 }
 
-.search-boba{
-    background-image: url("/boba.jpg");
-    color: white;
-    background-size: cover;
-    text-align: center;
+.login-container {
+  text-align: center;
+  margin-top: 2%;
+  max-width: 50%;
+  padding: 5%;
+  background-color: white;
 }
 
-.search-form{
-    padding: 5%;
+.form {
+  text-align: left;
+  padding: 2%;
 }
 
-.jumbotron{
-    margin-top: 2%;
-}
-.form{
-    text-align: left;
-    padding: 2%;
+.card {
+  text-align: left;
+  padding: 2%;
 }
 
-.card{
-    text-align: left;
-    padding: 2%;
+.home-image {
+  width: 500px;
+  height: 300px;
 }
 
-.home-image{
-    width: 500px;
-    height: 300px;
+.home-text {
+  text-align: left;
 }
 
-.home-text{
-    text-align: left;
+.btn-normal {
+  background-color: #de57c4;
+  color: white;
 }
 
-.btn-normal{
-    background-color: #DE57C4;
-    color: white;
-    margin: 1%;
+.btn-outline {
+  border-color: #de57c4;
+  color: #de57c4;
 }
 
-.btn-outline{
-    border-color: #DE57C4;
-    color: #DE57C4;
+.btn-outline:hover {
+  background-color: #de57c4;
+  color: white;
 }
 
-.btn-outline:hover{
-    background-color: #DE57C4;
-    color: white;
+/*******************/
+/* Find store page */
+/*                 */
+.search-boba {
+  background-image: url("/boba.jpg");
+  color: white;
+  background-size: cover;
+  text-align: center;
+  margin-top: 2%;
+}
+
+.search-form {
+  padding: 5%;
+  display: flex;
+  border-radius: 20px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.form-control {
+  border: gray;
+  box-shadow: none;
+  border-radius: 10px 0px 0px 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
+}
+
+.form-control:focus {
+  border: gray;
+  box-shadow: none;
+}
+
+#searchButtonOuter {
+  border-radius: 0px 10px 10px 0px;
+}
+
+.searchButton {
+  width: 25px;
+  height: 25px;
+  background: url("/search-solid.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.filterButtons {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+
+.filterButton {
+  background-color: #ff8c61;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-left: 2px solid #4e5283;
+  padding: 15px 5px;
+  display: flex;
+  flex: 1 1 auto;
+  text-align: center;
+  justify-content: center;
+}
+
+.filterBtnClicked {
+  background-color: #190e4f;
+  color: white;
+  box-shadow: none;
+  border-color: #190e4f;
+  border-left: 2px solid #ff8c61;
+}
+
+.button0 {
+  border-left: none;
+}
+
+.filterButton:focus,
+.filterButton:active {
+  box-shadow: none;
+  outline: none;
+}
+
+.singleStoreDiv {
+  border: 1px solid gold;
+  max-width: 700px;
+  height: 300px;
+  padding: 20px;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
