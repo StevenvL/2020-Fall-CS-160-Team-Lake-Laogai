@@ -1,19 +1,23 @@
 html {
-  height: 100;
+  height: auto;
 }
 
+/* background color */
 body {
   background: linear-gradient(#fd749b, #281ac8);
-  background-repeat: no-repeat;
-  /* background: linear-gradient(174.48deg, #fd749b -12.41%, #281ac8 88.56%); */
+  background-attachment: fixed;
 }
 
+/* react component */
 .componentBody {
   margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 2%;
   text-align: center;
   background-color: white;
 }
 
+/* login component, size smaller than componentBody */
 .login-container {
   text-align: center;
   margin-top: 2%;
@@ -22,25 +26,33 @@ body {
   background-color: white;
 }
 
+/* form styling, all text align left */
 .form {
   text-align: left;
   padding: 2%;
 }
 
+/* card for blogs and forums  */
 .card {
   text-align: left;
   padding: 2%;
+  margin-bottom: 2%;
 }
 
+/* home page image */
 .home-image {
   width: 500px;
   height: 300px;
 }
 
+/* home page text */
 .home-text {
   text-align: left;
 }
 
+/*******************/
+/* button for all pages*/
+/*  */
 .btn-normal {
   background-color: #de57c4;
   color: white;
@@ -55,6 +67,7 @@ body {
   background-color: #de57c4;
   color: white;
 }
+/*******************/
 
 /*******************/
 /* Find store page */
@@ -75,7 +88,7 @@ body {
   backdrop-filter: blur(8px);
 }
 
-.form-control {
+/* .form-control {
   border: gray;
   box-shadow: none;
   border-radius: 10px 0px 0px 10px;
@@ -87,7 +100,7 @@ body {
 .form-control:focus {
   border: gray;
   box-shadow: none;
-}
+} */
 
 #searchButtonOuter {
   border-radius: 0px 10px 10px 0px;
