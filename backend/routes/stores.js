@@ -75,4 +75,31 @@ router.get('/zip/:zip', function(req, res, next) {
   });
 });
 
+
+// post store 
+router.post('/', function(req, res){
+    //column name: storeName, street, city, state,zip, menu, sugar_level, ice_level
+    const storeName = req.body.storeName;
+    // const street = req.body.street;
+    // const city = req.body.city;
+    // const state = req.body.state;
+    // const zip = req.body.zip;
+    const menu = req.body.menu;
+    // const sugarLevel = req.body.sugarLevel;
+    // const iceLevel = req.body.iceLevel;
+    const insertSql = `INSERT INTO stores (storeName, menu) VALUES (?,?)`;
+    connection.query(insertSql, [storeName, menu] , (err, result) => {
+      if(err){
+        console.log(err);
+      }
+      console.log("Number of records inserted: " + result.affectedRows);
+      
+    })
+    // const insertSql = "INSERT INTO stores (storeName, street, city, state,zip, menu, sugar_level, ice_level) VALUES (?,?,?,?,?,?,?,?)";
+    // connection.query(insertSql, [storeName, street, city, state, zip, menu, sugarLevel, iceLevel] , (err, result) => {
+    //   console.log(err);
+    // })
+  })
+
+
 module.exports = router;
