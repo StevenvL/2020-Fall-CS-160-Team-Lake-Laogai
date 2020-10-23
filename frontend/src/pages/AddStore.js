@@ -1,48 +1,79 @@
-import React from 'react'
+import React , {useState} from 'react'
+import Axios from 'axios'
 import { Container , Form , Col , Button} from 'react-bootstrap'
+import FormComponent from '../components/FormComponent'
+
 
 function AddStore(){
+    
+    // useState hook for React state and lifecycle features from function components
+    const [storeName, setStoreName] = useState('')
+    const [address, setAddress] = useState('')
+    const [city, setCity] = useState('')
+    const [state, setState] = useState('')
+    const [zip, setZip] = useState('')
+    const [menu, setMenu] = useState('')
+    const [sugarLevel, setSugarLevel] = useState('')
+    const [iceLevel, setIceLevel] = useState('')
+
+    const url = "http://localhost:8000/stores"
+    const userInputData = {storeName: storeName, menu: menu}
+    let sendData = () => {
+        Axios.post(url, userInputData)
+        .then(res => console.log('Data Sent'))
+        .catch(err => console.log(err)) 
+    }
+ 
+   
     return(
         <Container className="componentBody">
             <h1> Add a New Store</h1>
+   
             <Form className="form">
-                <Form.Group>
-                    <Form.Label>Store Name</Form.Label>
-                    <Form.Control placeholder="boba store name" />
-                </Form.Group>
-                <Form.Group controlId="formGridAddress1">
-                    <Form.Label>Address</Form.Label>
-                    <Form.Control placeholder="1234 Main St" />
-                </Form.Group>
+                <FormComponent 
+                    label="Store Name" 
+                    placeholder="boba store name"
+                    setInput = {setStoreName}
+                />
+                <FormComponent 
+                    label="Address" 
+                    placeholder="1234 Main St" 
+                    setInput = {setAddress}
+                />
                 <Form.Row>         
-                    <Form.Group as={Col} controlId="formGridCity">
-                        <Form.Label>City</Form.Label>
-                        <Form.Control />
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridState">
-                        <Form.Label>State</Form.Label>
-                        <Form.Control />
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridZip">
-                        <Form.Label>Zip</Form.Label>
-                        <Form.Control />
-                    </Form.Group>
+                    <FormComponent 
+                        format={Col}
+                        label="City" 
+                        setInput = {setCity}
+                    />
+                    
+                    <FormComponent
+                        format={Col} 
+                        label = "State"
+                        setInput={setState}
+                    />
+                    <FormComponent
+                        format={Col} 
+                        label = "Zip"
+                        setInput={setZip}
+                    />
                 </Form.Row>
-                <Form.Group>
-                    <Form.Label>Menu</Form.Label>
-                    <Form.Control placeholder="salted cheese milk tea, brown sugar boba, fruit tea, ... " />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Sugar Level</Form.Label>
-                    <Form.Control placeholder="25% 50% 75%" />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Label>Ice Level</Form.Label>
-                    <Form.Control placeholder="25% 50% 75%" />
-                </Form.Group>
-                <Button variant="outline" type="submit">
+                <FormComponent 
+                    label="Menu"
+                    placeholder="salted cheese milk tea, brown sugar boba, fruit tea, ... " 
+                    setInput={setMenu}
+                />
+                <FormComponent 
+                    label = "Sugar Level"
+                    placeholder="25% 50% 75%" 
+                    setInput={setSugarLevel}
+                />
+                <FormComponent 
+                    label = "Ice Level"
+                    placeholder = "25% 50% 75%" 
+                    setInput = {setIceLevel}
+                /> 
+                <Button variant="outline" onClick={sendData} href="/addStore">
                     Add
                 </Button>
             </Form>         
