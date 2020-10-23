@@ -8,7 +8,7 @@ body {
   background-attachment: fixed;
 }
 
-/* react component */
+/* react component in Blogs and Forums*/
 .componentBody {
   margin-top: 2%;
   margin-bottom: 2%;
@@ -17,7 +17,7 @@ body {
   background-color: white;
 }
 
-/* login component, size smaller than componentBody */
+/* login component in Login, size smaller than componentBody */
 .login-container {
   text-align: center;
   margin-top: 2%;
