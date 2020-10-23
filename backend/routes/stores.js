@@ -92,6 +92,7 @@ router.post('/', function(req, res){
       if(err){
         console.log(err);
       }
+      console.log(storeName);
       console.log("Number of records inserted: " + result.affectedRows);
       
     })
