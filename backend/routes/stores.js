@@ -80,7 +80,7 @@ router.get('/zip/:zip', function(req, res, next) {
 /* This function receives datas from the frontend and insert them into the database */
 router.post('/', function(req, res){
     const storeName = req.body.storeName;
-    const street = req.body.street;
+    const street = req.body.address;
     const city = req.body.city;
     const state = req.body.state;
     const zip = req.body.zip;
