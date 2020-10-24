@@ -88,7 +88,7 @@ body {
   backdrop-filter: blur(8px);
 }
 
-/* .form-control {
+.findStoreInput {
   border: gray;
   box-shadow: none;
   border-radius: 10px 0px 0px 10px;
@@ -97,10 +97,10 @@ body {
   font-size: 20px;
 }
 
-.form-control:focus {
+.findStoreInput:focus {
   border: gray;
   box-shadow: none;
-} */
+}
 
 #searchButtonOuter {
   border-radius: 0px 10px 10px 0px;

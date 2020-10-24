@@ -22,7 +22,7 @@ function FindStore() {
       <Jumbotron className="search-boba">
         <form className="col-lg-6 offset-lg-3 search-form" action="POST">
           <input
-            className="form-control"
+            className="form-control findStoreInput"
             type="search"
             placeholder="Find Boba Store"
           />
