@@ -6,8 +6,7 @@ import UserInput from './UserInput'
 function FormComponent(props){
     return(
         <Form.Group as={props.format}>
-            <InputLabel label = {props.label} />
-            
+            <InputLabel label = {props.label} />            
             <UserInput placeholder = {props.placeholder} setInput = {props.setInput}/>
         </Form.Group>
     )

@@ -16,15 +16,15 @@ function AddStore(){
     const [sugarLevel, setSugarLevel] = useState('')
     const [iceLevel, setIceLevel] = useState('')
 
+    /* connection with backend insert api */
     const url = "http://localhost:8000/stores"
-    const userInputData = {storeName: storeName, menu: menu}
-    let sendData = () => {
-        Axios.post(url, userInputData)
+    const userInputData = {storeName: storeName, address: address, city: city, state: state, zip: zip, sugarLevel: sugarLevel, iceLevel: iceLevel, menu: menu}
+    const sendData = () => {
+        Axios.post(url, userInputData)  // post request to api
         .then(res => console.log('Data Sent'))
         .catch(err => console.log(err)) 
     }
- 
-   
+
     return(
         <Container className="componentBody">
             <h1> Add a New Store</h1>
@@ -45,8 +45,7 @@ function AddStore(){
                         format={Col}
                         label="City" 
                         setInput = {setCity}
-                    />
-                    
+                    />                   
                     <FormComponent
                         format={Col} 
                         label = "State"
@@ -73,7 +72,7 @@ function AddStore(){
                     placeholder = "25% 50% 75%" 
                     setInput = {setIceLevel}
                 /> 
-                <Button variant="outline" onClick={sendData} href="/addStore">
+                <Button variant="outline" onClick={sendData} href="/findStore">
                     Add
                 </Button>
             </Form>         
