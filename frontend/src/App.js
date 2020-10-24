@@ -8,6 +8,7 @@ import FindStore from "./pages/FindStore";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import StoreView from "./pages/StoreView";
+import AddStore from "./pages/AddStore";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             }} /> */}
         <Route path="/stores/:storeName" component={StoreView} />
         <Route path="/findStore" component={FindStore} />
+        <Route path="/addStore" component={AddStore} />
 
         <Route path="/login" component={Login} />
         <Route path="/signUp" component={SignUp} />
