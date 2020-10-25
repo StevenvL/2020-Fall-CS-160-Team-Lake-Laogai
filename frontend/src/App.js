@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./pages/Header";
 import Home from "./pages/Home";
 import Forums from "./pages/Forums";
+import ForumPost from "./pages/ForumPost";
 import Blogs from "./pages/Blogs";
 import Owner from "./pages/Owner";
 import FindStore from "./pages/FindStore";
@@ -17,6 +18,7 @@ function App() {
       <Header />
       <Switch>
         <Route path="/" exact component={Home} />
+        <Route path="/forums/:category/:postid" component={ForumPost} />
         <Route path="/forums" component={Forums} />
         <Route path="/blogs" component={Blogs} />
         <Route path="/owner" component={Owner} />
