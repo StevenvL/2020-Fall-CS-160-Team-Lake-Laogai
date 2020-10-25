@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Jumbotron, ButtonGroup } from "react-bootstrap";
+import { Container, Jumbotron, ButtonGroup, Button, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import FilterButton from "../components/FilterButton";
 
@@ -35,7 +35,9 @@ function FindStore() {
           </button>
         </form>
       </Jumbotron>
-
+      <Row>
+          <Col md={{offset: 9}}><Button href="/addStore">Found a new store? Add here!</Button></Col>
+      </Row>
       <ButtonGroup size="lg" className="mb-2 filterButtons">
         {/* <Button className="filterButton button1">Organic</Button> */}
         {filterButtons}

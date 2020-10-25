@@ -75,6 +75,9 @@ function AddStore(){
                 <Button variant="outline" onClick={sendData} href="/findStore">
                     Add
                 </Button>
+                <Button variant="outline" href="/findStore" className="ml-2">
+                    Cancel
+                </Button>
             </Form>         
         </Container>
     )
