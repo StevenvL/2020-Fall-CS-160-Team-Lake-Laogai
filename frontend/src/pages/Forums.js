@@ -1,48 +1,44 @@
-import React from 'react';
-import { Container, Card, Button } from 'react-bootstrap'
+import React, { Component } from 'react';
+import { Container} from 'react-bootstrap'
+import { Link } from "react-router-dom";
 
-function Forums(){
-    return( 
-        <Container className="componentBody">
-            <h1>Forums</h1>
-            <Card>
-                <Card.Header>Lorem</Card.Header>
-                <Card.Body>
-                    <Card.Img src="/bobabackground.jpg" />
-                    <Card.Text>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-                        culpa qui officia deserunt mollit anim id est laborum.
-                    </Card.Text>
-                    <Button variant="normal">Like</Button>
-                    <Button variant="normal">Comment</Button>
-                </Card.Body>
-            </Card>
 
-            <Card>
-                <Card.Header>Lorem</Card.Header>
-                <Card.Body>
-                    <Card.Img src="/bobabackground.jpg" />
-                    <Card.Text>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-                        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-                        culpa qui officia deserunt mollit anim id est laborum.
-                    </Card.Text>
-                    <Button variant="normal">Like</Button>
-                    <Button variant="normal">Comment</Button>
-                </Card.Body>
-            </Card>
-        </Container>
-        
-    )
+
+class Forums extends Component{
+    constructor(){
+        super();
+        this.state = {
+            categories: []
+        }
+    }
+
+    // categories is an array of json object and it's fetched from backend database.
+    // example of categories: all, health related, recipe, store news, nutrtion facts, general
+    componentDidMount(){
+        fetch("http://localhost:8000/forums")
+           .then(res => res.json())
+           .then(categories => this.setState({categories}, () => {
+               console.log('Categories fetched')
+           }, categories))
+    }
+
+    render(){
+        return( 
+            <Container className="componentBody">
+                <h1>Forum Categories</h1>
+                <div className="forumCategoriesBox">
+                  <ul className="forumCategoryList">
+                    {this.state.categories.map((d, i) => {
+                        return(
+                            <li key={i}><Link to={`/${d.category_name}`}>{d.category_name}</Link></li>
+                        )                   
+                    })}
+                  </ul>
+                </div>       
+            </Container>
+            
+        )
+    }
 }
 
 export default Forums;
