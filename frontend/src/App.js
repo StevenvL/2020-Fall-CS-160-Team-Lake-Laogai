@@ -18,6 +18,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/forums" component={Forums} />
+        {/* <Route path="/forums/:category" component={ForumsResult} /> */}
         <Route path="/blogs" component={Blogs} />
         <Route path="/owner" component={Owner} />
         {/* <Route path="/findStore/:storeName" component={props =>{
