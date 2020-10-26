@@ -30,7 +30,7 @@ class Forums extends Component{
                   <ul className="forumCategoryList">
                     {this.state.categories.map((d, i) => {
                         return(
-                            <li key={i}><Link to={`/${d.category_name}`}>{d.category_name}</Link></li>
+                            <li key={i}><Link to={`/forums/${d.category_name}`}>{d.category_name}</Link></li>
                         )                   
                     })}
                   </ul>
