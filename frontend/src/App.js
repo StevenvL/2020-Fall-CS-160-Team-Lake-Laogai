@@ -10,6 +10,7 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import StoreView from "./pages/StoreView";
 import AddStore from "./pages/AddStore";
+import CreatePost from "./pages/CreatePost.js"
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/forums/:category/:postid" component={ForumPost} />
         <Route path="/forums" component={Forums} />
         {/* <Route path="/forums/:category" component={ForumsResult} /> */}
+        <Route path="/createpost" component={CreatePost} />
         <Route path="/blogs" component={Blogs} />
         <Route path="/owner" component={Owner} />
         {/* <Route path="/findStore/:storeName" component={props =>{
