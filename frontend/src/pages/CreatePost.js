@@ -63,8 +63,8 @@ class CreatePost extends Component {
     //Need to change contaner className!!!
     //I want it too look similar but don't know what to change it to.
     render() {
-        console.log(this.state.selectedForumID);
-        console.log(this.state.postTitle);
+        //console.log(this.state.selectedForumID);
+        //console.log(this.state.postTitle);
         return (
             <Container className="login-container login-component">
                 <h1>Create a forum post</h1>

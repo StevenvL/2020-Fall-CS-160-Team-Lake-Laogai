@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import FilterButton from "../components/FilterButton";
 
 function FindStore() {
-  const dummyStores = ["store1", "store2"];
+  const dummyStores = ["Tiger Boba", "store2"];
   const drinkTypeArr = [
     "Organic",
     "Black Tea",
