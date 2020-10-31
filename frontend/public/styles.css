@@ -136,6 +136,12 @@ body {
   padding: 10px;
 }
 
+.searchSuggestionList p:hover {
+  color: lightcoral;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .filterButtons {
   display: flex;
   flex-wrap: wrap;
