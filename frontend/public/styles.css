@@ -78,10 +78,11 @@ body {
   background-size: cover;
   text-align: center;
   margin-top: 2%;
+  position: relative;
 }
 
 .search-form {
-  padding: 5%;
+  padding: 2%;
   display: flex;
   border-radius: 20px;
   -webkit-backdrop-filter: blur(8px);
@@ -112,6 +113,33 @@ body {
   background: url("/search-solid.svg");
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.optionActive {
+  color: lightcoral;
+}
+
+.searchSuggestionList {
+  /* border: 1px solid red; */
+  position: absolute;
+  right: 28%;
+  left: 28%;
+  z-index: 2;
+  background-color: white;
+  color: black;
+  font-size: 35px;
+}
+
+.searchSuggestionList p {
+  border: 1px solid lightgray;
+  margin: 0;
+  padding: 10px;
+}
+
+.searchSuggestionList p:hover {
+  color: lightcoral;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .filterButtons {
@@ -151,32 +179,76 @@ body {
   outline: none;
 }
 
+.loadingDiv {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.loadingDiv img {
+  width: 30%;
+  height: 30%;
+}
+.loadingDiv p {
+  margin-top: 50px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
 .singleStoreDiv {
-  border: 1px solid gold;
+  border: 4px solid #190e4f;
   max-width: 700px;
   height: 300px;
   padding: 20px;
   margin: 0 auto;
   margin-top: 50px;
   margin-bottom: 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 5px #0d324d;
+}
+
+.singleStoreDiv a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 30px;
+  color: #ffeecf;
+}
+.singleStoreDiv a:hover {
+  cursor: pointer;
+  color: white;
+}
+.singleStoreDiv p {
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  line-height: 35px;
+  color: #ebebeb;
+  padding: 15px;
+}
+
+.starRating {
+  padding: 4px;
 }
 /************************/
 
 /*** Forum ****/
 
 /* list of forum categories */
-.forumCategoriesBox{
+.forumCategoriesBox {
   text-align: left;
   margin-top: 2%;
   width: 50%;
   padding: 5%;
-  position: relative; 
+  position: relative;
   margin: auto;
 }
 
 /* remove bullet from category list */
-.forumCategoryList li{
+.forumCategoryList li {
   list-style-type: none;
   margin: 2%;
 }
-
