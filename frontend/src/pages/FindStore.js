@@ -48,15 +48,15 @@ function FindStore() {
     return <FilterButton name={type} key={index} index={index} />;
   });
 
-  function uppercase(str) {
-    var array1 = str.split(" ");
-    var newarray1 = [];
+  // function uppercase(str) {
+  //   var array1 = str.split(" ");
+  //   var newarray1 = [];
 
-    for (var x = 0; x < array1.length; x++) {
-      newarray1.push(array1[x].charAt(0).toUpperCase() + array1[x].slice(1));
-    }
-    return newarray1.join(" ");
-  }
+  //   for (var x = 0; x < array1.length; x++) {
+  //     newarray1.push(array1[x].charAt(0).toUpperCase() + array1[x].slice(1));
+  //   }
+  //   return newarray1.join(" ");
+  // }
 
   const editSearchStore = (e) => {
     setSearchStore(e.target.value);
@@ -166,9 +166,21 @@ function FindStore() {
             <div className="singleStoreDiv" key={index}>
               <Link to={`/stores/${store.storeName}`}>{store.storeName}</Link>
               <p>
-                Menu: {store.menu}
+                <span>Address</span> <br></br>
+                {store.street}, {store.city}, {store.state}
                 <br></br>
-                Ratings: <StoreRatings ratings={store.avg_rating} />
+                <span>Menu</span> <br></br>
+                {store.menu}
+                <br></br>
+                <span>Ice Level</span>
+                <br></br>
+                {store.ice_level.split(",").join("% ") + "%"}
+                <br></br>
+                <span>Sugar Level</span>
+                <br></br>
+                {store.sugar_level.split(",").join("% ") + "%"}
+                <br></br>
+                <span>Ratings</span> <StoreRatings ratings={store.avg_rating} />
               </p>
             </div>
           );
