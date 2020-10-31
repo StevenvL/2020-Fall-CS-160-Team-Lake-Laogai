@@ -166,13 +166,7 @@ function FindStore() {
             <div className="singleStoreDiv" key={index}>
               <Link to={`/stores/${store.storeName}`}>{store.storeName}</Link>
               <p>
-                Address: {store.street}, {store.city}, {store.state}
-                <br></br>
                 Menu: {store.menu}
-                <br></br>
-                Ice Level: {uppercase(store.ice_level)}
-                <br></br>
-                Sugar Level: {store.sugar_level.split(",").join("% ") + "%"}
                 <br></br>
                 Ratings: <StoreRatings ratings={store.avg_rating} />
               </p>
