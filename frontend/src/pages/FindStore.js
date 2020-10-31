@@ -7,13 +7,17 @@ import {
   Row,
   Col,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
 import FilterButton from "../components/FilterButton";
 import StoreRatings from "../components/StoreRatings";
+import SearchSuggestionList from "../components/SearchSuggestionList";
 
 function FindStore() {
   const [stores, setStores] = useState([]);
+  const [searchStore, setSearchStore] = useState("");
+  const [foundStore, setFoundStore] = useState(false);
+  const [goToStore, setGoToStore] = useState("");
 
   /* get all stores from backend api */
   useEffect(() => {
@@ -26,9 +30,11 @@ function FindStore() {
         console.log(err);
       }
     };
-    setTimeout(getAllStores, 0);
+    setTimeout(getAllStores, 2000);
+    setGoToStore("");
   }, []);
   console.log("stores", stores);
+  console.log("searchStore", searchStore);
 
   const drinkTypeArr = [
     "Organic",
@@ -52,14 +58,42 @@ function FindStore() {
     return newarray1.join(" ");
   }
 
+  const editSearchStore = (e) => {
+    setSearchStore(e.target.value);
+    setFoundStore(false);
+  };
+
+  const dynamicSearch = () => {
+    if (searchStore == "") return [];
+    else
+      return stores.filter((store) =>
+        store.storeName.toLowerCase().includes(searchStore.toLowerCase())
+      );
+  };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log("handleFormSubmit e:", e.target[0].value);
+    setGoToStore(e.target[0].value);
+  };
+
+  if (goToStore.length !== 0) {
+    return <Redirect to={`/stores/${goToStore}`} />;
+  }
+
   return (
     <Container>
       <Jumbotron className="search-boba">
-        <form className="col-lg-6 offset-lg-3 search-form" action="POST">
+        <form
+          className="col-lg-6 offset-lg-3 search-form"
+          onSubmit={handleFormSubmit}
+        >
           <input
             className="form-control findStoreInput"
             type="search"
-            placeholder="Find Boba Store"
+            value={searchStore}
+            onChange={editSearchStore}
+            placeholder="Find A Boba Store"
           />
           <button
             className="btn btn-normal my-sm-0"
@@ -69,6 +103,13 @@ function FindStore() {
             <div className="searchButton"></div>
           </button>
         </form>
+        <SearchSuggestionList
+          searchedStores={dynamicSearch()}
+          setSearchStore={setSearchStore}
+          ifTypedWords={searchStore !== ""}
+          foundStore={foundStore}
+          setFoundStore={setFoundStore}
+        />
       </Jumbotron>
       <Row>
         <Col md={{ offset: 9 }}>

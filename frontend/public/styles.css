@@ -78,10 +78,11 @@ body {
   background-size: cover;
   text-align: center;
   margin-top: 2%;
+  position: relative;
 }
 
 .search-form {
-  padding: 5%;
+  padding: 2%;
   display: flex;
   border-radius: 20px;
   -webkit-backdrop-filter: blur(8px);
@@ -112,6 +113,23 @@ body {
   background: url("/search-solid.svg");
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.searchSuggestionList {
+  /* border: 1px solid red; */
+  position: absolute;
+  right: 28%;
+  left: 28%;
+  z-index: 2;
+  background-color: white;
+  color: black;
+  font-size: 35px;
+}
+
+.searchSuggestionList p {
+  border: 1px solid lightgray;
+  margin: 0;
+  padding: 10px;
 }
 
 .filterButtons {
