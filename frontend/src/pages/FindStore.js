@@ -166,18 +166,16 @@ function FindStore() {
             <div className="singleStoreDiv" key={index}>
               <Link to={`/stores/${store.storeName}`}>{store.storeName}</Link>
               <p>
-                <span>Address</span> <br></br>
+                <span>Address: </span>
                 {store.street}, {store.city}, {store.state}
                 <br></br>
-                <span>Menu</span> <br></br>
+                <span>Menu: </span>
                 {store.menu}
                 <br></br>
-                <span>Ice Level</span>
-                <br></br>
+                <span>Ice Level: </span>
                 {store.ice_level.split(",").join("% ") + "%"}
                 <br></br>
-                <span>Sugar Level</span>
-                <br></br>
+                <span>Sugar Level: </span>
                 {store.sugar_level.split(",").join("% ") + "%"}
                 <br></br>
                 <span>Ratings</span> <StoreRatings ratings={store.avg_rating} />

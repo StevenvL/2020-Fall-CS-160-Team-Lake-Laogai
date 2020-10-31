@@ -201,18 +201,18 @@ body {
 .singleStoreDiv {
   border: 4px solid #190e4f;
   max-width: 700px;
-  height: 380px;
+  height: 350px;
   padding: 20px;
   margin: 0 auto;
   margin-top: 50px;
   margin-bottom: 50px;
   border-radius: 10px;
   box-shadow: 0 0 10px 5px #0d324d;
-  text-align: center;
+  /* text-align: center;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-start; */
 }
 
 .singleStoreDiv a {
@@ -235,7 +235,7 @@ body {
   padding: 15px;
 }
 .singleStoreDiv span {
-  color: black;
+  color: rgb(211, 173, 6);
   font-size: 20px;
 }
 
