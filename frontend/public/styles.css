@@ -115,6 +115,10 @@ body {
   background-repeat: no-repeat;
 }
 
+.optionActive {
+  color: lightcoral;
+}
+
 .searchSuggestionList {
   /* border: 1px solid red; */
   position: absolute;

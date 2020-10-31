@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function SearchSuggestionList({
-  searchedStores,
+  filteredStores,
   setSearchStore,
   ifTypedWords,
   foundStore,
   setFoundStore,
+  activeFilteredStoreIndex,
 }) {
-  console.log("searchedStores", searchedStores);
+  console.log("filteredStores", filteredStores);
   console.log("ifTypedWords", ifTypedWords);
 
   const selectThisStore = (e) => {
@@ -17,14 +18,20 @@ function SearchSuggestionList({
   };
 
   const lists =
-    ifTypedWords && searchedStores.length == 0 ? (
+    ifTypedWords && filteredStores.length == 0 ? (
       <p>Oops, no such store</p>
     ) : (
-      searchedStores.map((store, index) => (
-        <p key={index} onClick={selectThisStore}>
-          {store.storeName}
-        </p>
-      ))
+      filteredStores.map((store, index) => {
+        let className;
+        if (index === activeFilteredStoreIndex) {
+          className = "optionActive";
+        }
+        return (
+          <p className={className} key={index} onClick={selectThisStore}>
+            {store.storeName}
+          </p>
+        );
+      })
     );
 
   const stores = ifTypedWords && !foundStore ? lists : <></>;

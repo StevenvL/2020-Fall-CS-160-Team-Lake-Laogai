@@ -18,13 +18,13 @@ function FindStore() {
   const [searchStore, setSearchStore] = useState("");
   const [foundStore, setFoundStore] = useState(false);
   const [goToStore, setGoToStore] = useState("");
+  const [activeFilteredStoreIndex, setActiveFilteredStoreIndex] = useState(0);
 
   /* get all stores from backend api */
   useEffect(() => {
     const getAllStores = async () => {
       try {
         const response = await axios(`http://localhost:8000/stores`);
-        // console.log("response", response.data);
         setStores(response.data);
       } catch (err) {
         console.log(err);
@@ -64,11 +64,38 @@ function FindStore() {
   };
 
   const dynamicSearch = () => {
-    if (searchStore == "") return [];
-    else
+    if (searchStore == "") {
+      return [];
+    } else {
       return stores.filter((store) =>
         store.storeName.toLowerCase().includes(searchStore.toLowerCase())
       );
+    }
+  };
+
+  const onKeyDown = (e) => {
+    if (searchStore === "") {
+      setActiveFilteredStoreIndex(0);
+    }
+    let filtered = dynamicSearch();
+    if (e.keyCode === 13) {
+      setSearchStore(filtered[activeFilteredStoreIndex].storeName);
+      setFoundStore(true);
+      setActiveFilteredStoreIndex(0);
+    } else if (e.keyCode === 38) {
+      if (activeFilteredStoreIndex === 0) {
+        setActiveFilteredStoreIndex(filtered.length - 1);
+      } else {
+        setActiveFilteredStoreIndex(activeFilteredStoreIndex - 1);
+      }
+    } else if (e.keyCode === 40) {
+      if (activeFilteredStoreIndex === filtered.length - 1) {
+        setActiveFilteredStoreIndex(0);
+      } else {
+        setActiveFilteredStoreIndex(activeFilteredStoreIndex + 1);
+      }
+    }
+    console.log("activeFilteredStoreIndex", activeFilteredStoreIndex);
   };
 
   const handleFormSubmit = (e) => {
@@ -93,6 +120,7 @@ function FindStore() {
             type="search"
             value={searchStore}
             onChange={editSearchStore}
+            onKeyDown={onKeyDown}
             placeholder="Find A Boba Store"
           />
           <button
@@ -104,11 +132,12 @@ function FindStore() {
           </button>
         </form>
         <SearchSuggestionList
-          searchedStores={dynamicSearch()}
+          filteredStores={dynamicSearch()}
           setSearchStore={setSearchStore}
           ifTypedWords={searchStore !== ""}
           foundStore={foundStore}
           setFoundStore={setFoundStore}
+          activeFilteredStoreIndex={activeFilteredStoreIndex}
         />
       </Jumbotron>
       <Row>
