@@ -201,7 +201,7 @@ body {
 .singleStoreDiv {
   border: 4px solid #190e4f;
   max-width: 700px;
-  height: 350px;
+  height: 340px;
   padding: 20px;
   margin: 0 auto;
   margin-top: 50px;
@@ -220,6 +220,9 @@ body {
   font-weight: bold;
   font-size: 30px;
   color: #ffeecf;
+  /* display: flex;
+  align-items: center; */
+  /* border: 1px solid red; */
 }
 .singleStoreDiv a:hover {
   cursor: pointer;
