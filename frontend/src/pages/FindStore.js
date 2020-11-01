@@ -19,6 +19,8 @@ function FindStore() {
   const [foundStore, setFoundStore] = useState(false);
   const [goToStore, setGoToStore] = useState("");
   const [activeFilteredStoreIndex, setActiveFilteredStoreIndex] = useState(0);
+  const [drinkTypes, setDrinkTypes] = useState([]);
+  const [selectedDrinkTypes, setSelectedDrinkTypes] = useState([]);
 
   /* get all stores from backend api */
   useEffect(() => {
@@ -30,22 +32,32 @@ function FindStore() {
         console.log(err);
       }
     };
+    const getAllDrinkTypes = async () => {
+      try {
+        const response = await axios(`http://localhost:8000/stores/drinktypes`);
+        setDrinkTypes(response.data);
+        console.log("getAllDrinkTypes", response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
     setTimeout(getAllStores, 2000);
+    getAllDrinkTypes();
     setGoToStore("");
   }, []);
   console.log("stores", stores);
   console.log("searchStore", searchStore);
 
-  const drinkTypeArr = [
-    "Organic",
-    "Black Tea",
-    "Green Tea",
-    "Alternative Milk",
-    "Oolong Tea",
-    "Brown Sugar",
-  ];
-  let filterButtons = drinkTypeArr.map((type, index) => {
-    return <FilterButton name={type} key={index} index={index} />;
+  // const drinkTypeArr = [
+  //   "Organic",
+  //   "Black Tea",
+  //   "Green Tea",
+  //   "Alternative Milk",
+  //   "Oolong Tea",
+  //   "Brown Sugar",
+  // ];
+  let filterButtons = drinkTypes.map((type, index) => {
+    return <FilterButton name={type.typename} key={index} index={index} />;
   });
 
   // function uppercase(str) {

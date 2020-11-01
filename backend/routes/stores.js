@@ -37,6 +37,23 @@ router.get("/storename/:storeName", function (req, res, next) {
   );
 });
 
+/* GET all drink types */
+/* When user select nothing from the search box or filter, this function retrieves all the stores in the database*/
+router.get("/drinktypes", function (req, res, next) {
+  /*error takes care the error if happened during the query
+	results conatins the results of the query
+	fields contains information about the returned results field
+    */
+  connection.query(
+    "SELECT typename FROM drink_type",
+    function (error, results, fields) {
+      if (error) throw error;
+      console.log(results);
+      res.json(results);
+    }
+  );
+});
+
 /* GET stores by drink type */
 /* This function retrieves the corresponding store information based on the drink type filter*/
 router.get("/drinktype/:typename", function (req, res, next) {
