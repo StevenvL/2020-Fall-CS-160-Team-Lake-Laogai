@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container, Card, Button, Row, Col } from "react-bootstrap";
 import axios from "axios";
+import { Link, Redirect } from "react-router-dom";
 import ForumCommentForm from "../components/ForumCommentForm";
 
 function ForumPost(props) {
@@ -8,6 +9,7 @@ function ForumPost(props) {
   const [comments, setComments] = useState([]);
   const [post, setPost] = useState({});
 
+  const forumID = props.location.forumID;
   useEffect(() => {
     const getComments = async () => {
       try {
@@ -35,9 +37,7 @@ function ForumPost(props) {
     getPost();
   }, []);
 
-  //   setCommentFormVisible() {
-  //     this.setState({ commentForm: true });
-  //   }
+  console.log("ForumPost props", props);
 
   const CommentBtn = () => (
     <Col xs={{ offset: 5 }}>
@@ -54,6 +54,19 @@ function ForumPost(props) {
     <Container className="componentBody">
       <a href="/forums">forum</a>/<a href="">{props.match.params.category}</a>/
       <a href="#">{post.postTitle}</a>
+      <div className="readAnotherForum">
+        <Link to={`/forums`}>Read another forum</Link>
+      </div>
+      <div className="readAnotherForum">
+        <Link
+          to={{
+            pathname: `/forums/${props.match.params.category}`,
+            forumID: `${forumID}`,
+          }}
+        >
+          Read another post
+        </Link>
+      </div>
       <h1>{post.postTitle}</h1>
       <Row>
         <Col>

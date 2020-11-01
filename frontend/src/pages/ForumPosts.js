@@ -5,9 +5,9 @@ import { Container } from "react-bootstrap";
 
 function ForumPosts(props) {
   const [posts, setPosts] = useState([]);
-
+  
+  const forumID = props.location.forumID;
   useEffect(() => {
-    const forumID = props.location.forumID;
     console.log("ForumPosts props", props);
     /* get all stores from backend api */
     const getPosts = async () => {
@@ -30,7 +30,12 @@ function ForumPosts(props) {
       <div className="postCard">
         <h1>{post.postTitle}</h1>
         <p>{post.postDescriptioni}</p>
-        <Link to={`/forums/${categoryName}/${post.forumPostID}`}>
+        <Link
+          to={{
+            pathname: `/forums/${categoryName}/${post.forumPostID}`,
+            forumID: `${forumID}`,
+          }}
+        >
           Read more
         </Link>
       </div>
