@@ -331,6 +331,7 @@ body {
   color: white;
   background-color: #a846a0;
 }
+
 .postCard {
   /* border: 1px solid red; */
   border-radius: 20px;
@@ -347,6 +348,24 @@ body {
 .postCard a:hover {
   font-weight: bold;
   color: #54457f;
+}
+/*******************/
+
+/********* Forum Post **********/
+.readOthers {
+  margin: 20px;
+  margin-left: 0;
+}
+.readOthers a {
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #44355b;
+}
+.readOthers a:hover {
+  color: white;
+  background-color: #a846a0;
 }
 
 /*******************/

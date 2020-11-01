@@ -52,19 +52,19 @@ function ForumPost(props) {
 
   return (
     <Container className="componentBody">
-      <a href="/forums">forum</a>/<a href="">{props.match.params.category}</a>/
-      <a href="#">{post.postTitle}</a>
-      <div className="readAnotherForum">
-        <Link to={`/forums`}>Read another forum</Link>
+      {/* <a href="/forums">forum</a>/<a href="">{props.match.params.category}</a>/
+      <a href="#">{post.postTitle}</a> */}
+      <div className="readOthers" align="left">
+        <Link to={`/forums`}>Read other forums</Link>
       </div>
-      <div className="readAnotherForum">
+      <div className="readOthers" align="left">
         <Link
           to={{
             pathname: `/forums/${props.match.params.category}`,
             forumID: `${forumID}`,
           }}
         >
-          Read another post
+          Read other posts
         </Link>
       </div>
       <h1>{post.postTitle}</h1>
