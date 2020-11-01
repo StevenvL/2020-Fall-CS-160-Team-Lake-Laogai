@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./pages/Header";
 import Home from "./pages/Home";
 import Forums from "./pages/Forums";
+import ForumPosts from "./pages/ForumPosts";
 import ForumPost from "./pages/ForumPost";
 import Blogs from "./pages/Blogs";
 import Owner from "./pages/Owner";
@@ -20,8 +21,8 @@ function App() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/forums/:category/:postid" component={ForumPost} />
+        <Route path="/forums/:category" component={ForumPosts} />
         <Route path="/forums" component={Forums} />
-        {/* <Route path="/forums/:category" component={ForumsResult} /> */}
         <Route path="/createpost" component={CreatePost} />
         <Route path="/blogs" component={Blogs} />
         <Route path="/owner" component={Owner} />

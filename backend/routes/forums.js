@@ -20,6 +20,18 @@ router.get("/posts", function (req, res) {
   });
 });
 
+router.get("/posts/:forumid", function (req, res, next) {
+  let forumid = req.params["forumid"];
+  connection.query(
+    `SELECT * FROM forum_posts WHERE forumID=${forumid}`,
+    function (error, results, fields) {
+      if (error) throw error;
+      console.log(results);
+      res.json(results);
+    }
+  );
+});
+
 router.get("/posts/:postid", function (req, res, next) {
   let postid = req.params["postid"];
   connection.query(

@@ -267,17 +267,89 @@ body {
 }
 /*******************/
 
-/*** Forum ****/
-
+/********* Forum **********/
 /* list of forum categories */
-.forumCategoriesBox {
-  text-align: left;
+.forumContainer {
   margin-top: 2%;
-  width: 50%;
-  padding: 5%;
-  position: relative;
-  margin: auto;
+  margin-bottom: 2%;
+  padding: 2%;
+  text-align: center;
 }
+
+.forumContainer h1 {
+  font-size: 60px;
+}
+
+.forumCategoriesBox {
+  border: 1px solid #44355b;
+  border-radius: 5%;
+  width: 90%;
+  padding: 5%;
+  margin: 10% auto;
+  /* background-color: #ead2ac; */
+}
+
+.forumCard {
+  padding: 50px;
+  border: 5px solid rgba(0, 0, 255, 0.2);
+  margin: 40px;
+  border-radius: 10px;
+  box-shadow: 13px 13px 2px 1px rgba(0, 0, 255, 0.2);
+}
+
+.forumCard a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 30px;
+  color: #fcab64;
+}
+
+.forumCard a:hover {
+  color: #fcd29f;
+}
+/*******************/
+
+/********* Forum Posts **********/
+.forumPosts {
+  width: 80%;
+  text-align: left;
+  padding: 2%;
+}
+
+.readAnotherForum {
+  margin: 20px;
+  margin-left: 0;
+}
+.readAnotherForum a {
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #f6feaa;
+}
+.readAnotherForum a:hover {
+  color: white;
+  background-color: #a846a0;
+}
+.postCard {
+  /* border: 1px solid red; */
+  border-radius: 20px;
+  padding: 6%;
+  margin: 40px;
+  background-color: rgba(252, 234, 222, 0.8);
+  box-shadow: 13px 13px 0 0 #b88c9e;
+}
+.postCard a {
+  text-decoration: none;
+  color: #4c243b;
+  float: right;
+}
+.postCard a:hover {
+  font-weight: bold;
+  color: #54457f;
+}
+
+/*******************/
 
 /* remove bullet from category list */
 .forumCategoryList li {
