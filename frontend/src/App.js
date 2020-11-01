@@ -10,7 +10,7 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import StoreView from "./pages/StoreView";
 import AddStore from "./pages/AddStore";
-import CreatePost from "./pages/CreatePost.js"
+import CreatePost from "./pages/CreatePost.js";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
