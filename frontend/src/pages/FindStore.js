@@ -93,7 +93,7 @@ function FindStore() {
 
   // get all the available stores based on the user's input in the search bar
   const dynamicSearch = () => {
-    if (searchStore == "") {
+    if (searchStore === "") {
       return [];
     } else {
       return stores.filter((store) =>

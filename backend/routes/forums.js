@@ -32,7 +32,7 @@ router.get("/posts/:forumid", function (req, res, next) {
   );
 });
 
-router.get("/posts/:postid", function (req, res, next) {
+router.get("/post/:postid", function (req, res, next) {
   let postid = req.params["postid"];
   connection.query(
     `SELECT * FROM forum_posts WHERE forumPostID=${postid}`,
