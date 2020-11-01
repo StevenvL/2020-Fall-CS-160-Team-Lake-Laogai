@@ -247,6 +247,26 @@ body {
 }
 /************************/
 
+/*******************/
+/* Store View Page */
+/*                 */
+.findAnotherStore {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+.findAnotherStore a {
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #d8b82b;
+}
+.findAnotherStore a:hover {
+  color: white;
+  background-color: #a846a0;
+}
+/*******************/
+
 /*** Forum ****/
 
 /* list of forum categories */
