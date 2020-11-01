@@ -19,9 +19,12 @@ function FindStore() {
   const [foundStore, setFoundStore] = useState(false);
   const [goToStore, setGoToStore] = useState("");
   const [activeFilteredStoreIndex, setActiveFilteredStoreIndex] = useState(0);
+  const [drinkTypes, setDrinkTypes] = useState([]);
+  const [selectedDrinkTypes, setSelectedDrinkTypes] = useState([]);
+  const [filteredStores, setFilteredStores] = useState([]);
 
-  /* get all stores from backend api */
   useEffect(() => {
+    /* get all stores from backend api */
     const getAllStores = async () => {
       try {
         const response = await axios(`http://localhost:8000/stores`);
@@ -30,41 +33,67 @@ function FindStore() {
         console.log(err);
       }
     };
+    /* get all drink types from backend api */
+    const getAllDrinkTypes = async () => {
+      try {
+        const response = await axios(`http://localhost:8000/stores/drinktypes`);
+        setDrinkTypes(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
     setTimeout(getAllStores, 2000);
+    getAllDrinkTypes();
     setGoToStore("");
   }, []);
-  console.log("stores", stores);
-  console.log("searchStore", searchStore);
 
-  const drinkTypeArr = [
-    "Organic",
-    "Black Tea",
-    "Green Tea",
-    "Alternative Milk",
-    "Oolong Tea",
-    "Brown Sugar",
-  ];
-  let filterButtons = drinkTypeArr.map((type, index) => {
-    return <FilterButton name={type} key={index} index={index} />;
+  // reload page once a different filter button is selected
+  // render matching stores based on selected drink types
+  useEffect(() => {
+    setFilteredStores([]);
+    const filtered = stores.filter((store) => {
+      return store.menu
+        .split(", ")
+        .some((drinkType) => selectedDrinkTypes.includes(drinkType));
+    });
+    setFilteredStores(filtered);
+  }, [selectedDrinkTypes]);
+
+  // keep track of what drink types the user selects
+  const handleSelectedDrinkTypes = (type) => {
+    const tempTypes = [...selectedDrinkTypes];
+    const typeIndex = tempTypes.indexOf(type.typename);
+    if (typeIndex !== -1) {
+      tempTypes.splice(typeIndex, 1);
+      console.log(`Removing ${type.typename} from selectedDrinkTypes...`);
+    } else {
+      tempTypes.push(type.typename);
+      console.log(`Pushing ${type.typename} to selectedDrinkTypes...`);
+    }
+    setSelectedDrinkTypes(tempTypes);
+  };
+
+  // render all the drink types as buttons
+  let filterButtons = drinkTypes.map((type, index) => {
+    return (
+      <FilterButton
+        name={type.typename}
+        key={index}
+        index={index}
+        handleSelectedDrinkTypes={() => handleSelectedDrinkTypes(type)}
+      />
+    );
   });
 
-  function uppercase(str) {
-    var array1 = str.split(" ");
-    var newarray1 = [];
-
-    for (var x = 0; x < array1.length; x++) {
-      newarray1.push(array1[x].charAt(0).toUpperCase() + array1[x].slice(1));
-    }
-    return newarray1.join(" ");
-  }
-
+  // search bar input onChange function
   const editSearchStore = (e) => {
     setSearchStore(e.target.value);
     setFoundStore(false);
   };
 
+  // get all the available stores based on the user's input in the search bar
   const dynamicSearch = () => {
-    if (searchStore == "") {
+    if (searchStore === "") {
       return [];
     } else {
       return stores.filter((store) =>
@@ -73,6 +102,7 @@ function FindStore() {
     }
   };
 
+  // user can use keyboard to select items in the search suggestion list
   const onKeyDown = (e) => {
     if (searchStore === "") {
       setActiveFilteredStoreIndex(0);
@@ -98,14 +128,94 @@ function FindStore() {
     console.log("activeFilteredStoreIndex", activeFilteredStoreIndex);
   };
 
+  // search bar form onSubmit function
   const handleFormSubmit = (e) => {
     e.preventDefault();
     console.log("handleFormSubmit e:", e.target[0].value);
     setGoToStore(e.target[0].value);
   };
 
+  // go to the store info page based on the search bar input
   if (goToStore.length !== 0) {
     return <Redirect to={`/stores/${goToStore}`} />;
+  }
+
+  // render the corresponding stores
+  let storesToRender;
+  if (selectedDrinkTypes.length === 0) {
+    if (stores.length === 0) {
+      storesToRender = (
+        <div className="loadingDiv">
+          <img
+            src="https://res.cloudinary.com/headincloud/image/upload/v1603878332/bobaStoreLoading_lwcxua.gif"
+            alt="loadingGif"
+          />
+          <p>Loading all the stores...</p>
+        </div>
+      );
+    } else {
+      storesToRender = stores.map(function (store, index) {
+        return (
+          <div className="singleStoreDiv" key={index}>
+            <div>
+              <Link to={`/stores/${store.storeName}`}>{store.storeName}</Link>
+              <p>
+                <span>Address: </span>
+                {store.street}, {store.city}, {store.state}
+                <br></br>
+                <span>Menu: </span>
+                {store.menu}
+                <br></br>
+                <span>Ice Level: </span>
+                {store.ice_level.split(",").join("% ") + "%"}
+                <br></br>
+                <span>Sugar Level: </span>
+                {store.sugar_level.split(",").join("% ") + "%"}
+                <br></br>
+                <span>Ratings</span> <StoreRatings ratings={store.avg_rating} />
+              </p>
+            </div>
+          </div>
+        );
+      });
+    }
+  } else {
+    if (filteredStores.length === 0) {
+      storesToRender = (
+        <div className="loadingDiv">
+          <img
+            src="https://res.cloudinary.com/headincloud/image/upload/v1604239389/giphybobaempty_gyo4u4.gif"
+            alt="sorry no match"
+          />
+          <p>Sorry, no matches...</p>
+        </div>
+      );
+    } else {
+      storesToRender = filteredStores.map(function (store, index) {
+        return (
+          <div className="singleStoreDiv" key={index}>
+            <div>
+              <Link to={`/stores/${store.storeName}`}>{store.storeName}</Link>
+              <p>
+                <span>Address: </span>
+                {store.street}, {store.city}, {store.state}
+                <br></br>
+                <span>Menu: </span>
+                {store.menu}
+                <br></br>
+                <span>Ice Level: </span>
+                {store.ice_level.split(",").join("% ") + "%"}
+                <br></br>
+                <span>Sugar Level: </span>
+                {store.sugar_level.split(",").join("% ") + "%"}
+                <br></br>
+                <span>Ratings</span> <StoreRatings ratings={store.avg_rating} />
+              </p>
+            </div>
+          </div>
+        );
+      });
+    }
   }
 
   return (
@@ -140,6 +250,7 @@ function FindStore() {
           activeFilteredStoreIndex={activeFilteredStoreIndex}
         />
       </Jumbotron>
+
       <Row>
         <Col md={{ offset: 9 }}>
           <Button href="/addStore">
@@ -147,39 +258,13 @@ function FindStore() {
           </Button>
         </Col>
       </Row>
+
       <ButtonGroup size="lg" className="mb-2 filterButtons">
         {/* <Button className="filterButton button1">Organic</Button> */}
         {filterButtons}
       </ButtonGroup>
 
-      {stores.length === 0 ? (
-        <div className="loadingDiv">
-          <img
-            src="https://res.cloudinary.com/headincloud/image/upload/v1603878332/bobaStoreLoading_lwcxua.gif"
-            alt="loadingGif"
-          />
-          <p>Loading all the stores...</p>
-        </div>
-      ) : (
-        stores.map(function (store, index) {
-          return (
-            <div className="singleStoreDiv" key={index}>
-              <Link to={`/stores/${store.storeName}`}>{store.storeName}</Link>
-              <p>
-                Address: {store.street}, {store.city}, {store.state}
-                <br></br>
-                Menu: {store.menu}
-                <br></br>
-                Ice Level: {uppercase(store.ice_level)}
-                <br></br>
-                Sugar Level: {store.sugar_level.split(",").join("% ") + "%"}
-                <br></br>
-                Ratings: <StoreRatings ratings={store.avg_rating} />
-              </p>
-            </div>
-          );
-        })
-      )}
+      {storesToRender}
     </Container>
   );
 }
