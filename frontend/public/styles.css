@@ -159,6 +159,7 @@ body {
   flex: 1 1 auto;
   text-align: center;
   justify-content: center;
+  text-transform: capitalize;
 }
 
 .filterBtnClicked {
@@ -228,6 +229,7 @@ body {
   cursor: pointer;
   color: #ffe46b;
 }
+
 .singleStoreDiv p {
   margin: 0 auto;
   font-weight: bold;
@@ -237,9 +239,17 @@ body {
   color: #ebebeb;
   padding: 15px;
 }
+
 .singleStoreDiv span {
   color: rgb(230, 195, 44);
   font-size: 20px;
+}
+
+#storeMenu {
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 15px;
+  color: #ebebeb;
 }
 
 .starRating {
