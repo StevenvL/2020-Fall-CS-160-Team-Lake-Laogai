@@ -8,11 +8,11 @@ function SearchSuggestionList({
   setFoundStore,
   activeFilteredStoreIndex,
 }) {
-  console.log("filteredStores", filteredStores);
-  console.log("ifTypedWords", ifTypedWords);
+  // console.log("filteredStores", filteredStores);
+  // console.log("ifTypedWords", ifTypedWords);
 
   const selectThisStore = (e) => {
-    console.log("selectThisStore e:", e.target);
+    // console.log("selectThisStore e:", e.target);
     setSearchStore(e.target.innerText);
     setFoundStore(true);
   };

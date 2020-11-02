@@ -195,19 +195,24 @@ body {
 .loadingDiv p {
   margin-top: 50px;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 40px;
 }
 
 .singleStoreDiv {
   border: 4px solid #190e4f;
   max-width: 700px;
-  height: 300px;
+  height: 340px;
   padding: 20px;
   margin: 0 auto;
   margin-top: 50px;
   margin-bottom: 50px;
   border-radius: 10px;
   box-shadow: 0 0 10px 5px #0d324d;
+  /* text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start; */
 }
 
 .singleStoreDiv a {
@@ -215,19 +220,26 @@ body {
   font-weight: bold;
   font-size: 30px;
   color: #ffeecf;
+  /* display: flex;
+  align-items: center; */
+  /* border: 1px solid red; */
 }
 .singleStoreDiv a:hover {
   cursor: pointer;
-  color: white;
+  color: #ffe46b;
 }
 .singleStoreDiv p {
   margin: 0 auto;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 15px;
   text-align: center;
   line-height: 35px;
   color: #ebebeb;
   padding: 15px;
+}
+.singleStoreDiv span {
+  color: rgb(230, 195, 44);
+  font-size: 20px;
 }
 
 .starRating {
@@ -235,17 +247,128 @@ body {
 }
 /************************/
 
-/*** Forum ****/
-
-/* list of forum categories */
-.forumCategoriesBox {
-  text-align: left;
-  margin-top: 2%;
-  width: 50%;
-  padding: 5%;
-  position: relative;
-  margin: auto;
+/*******************/
+/* Store View Page */
+/*                 */
+.findAnotherStore {
+  margin-bottom: 10px;
+  font-size: 20px;
 }
+.findAnotherStore a {
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #d8b82b;
+}
+.findAnotherStore a:hover {
+  color: white;
+  background-color: #a846a0;
+}
+/*******************/
+
+/********* Forum **********/
+/* list of forum categories */
+.forumContainer {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 2%;
+  text-align: center;
+}
+
+.forumContainer h1 {
+  font-size: 60px;
+}
+
+.forumCategoriesBox {
+  border: 1px solid #44355b;
+  border-radius: 5%;
+  width: 90%;
+  padding: 5%;
+  margin: 10% auto;
+  /* background-color: #ead2ac; */
+}
+
+.forumCard {
+  padding: 50px;
+  border: 5px solid rgba(0, 0, 255, 0.2);
+  margin: 40px;
+  border-radius: 10px;
+  box-shadow: 13px 13px 2px 1px rgba(0, 0, 255, 0.2);
+}
+
+.forumCard a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 30px;
+  color: #fcab64;
+}
+
+.forumCard a:hover {
+  color: #fcd29f;
+}
+/*******************/
+
+/********* Forum Posts **********/
+.forumPosts {
+  width: 80%;
+  text-align: left;
+  padding: 2%;
+}
+
+.readAnotherForum {
+  margin: 20px;
+  margin-left: 0;
+}
+.readAnotherForum a {
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #f6feaa;
+}
+.readAnotherForum a:hover {
+  color: white;
+  background-color: #a846a0;
+}
+
+.postCard {
+  /* border: 1px solid red; */
+  border-radius: 20px;
+  padding: 6%;
+  margin: 40px;
+  background-color: rgba(252, 234, 222, 0.8);
+  box-shadow: 13px 13px 0 0 #b88c9e;
+}
+.postCard a {
+  text-decoration: none;
+  color: #4c243b;
+  float: right;
+}
+.postCard a:hover {
+  font-weight: bold;
+  color: #54457f;
+}
+/*******************/
+
+/********* Forum Post **********/
+.readOthers {
+  margin: 20px;
+  margin-left: 0;
+}
+.readOthers a {
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #44355b;
+}
+.readOthers a:hover {
+  color: white;
+  background-color: #a846a0;
+}
+
+/*******************/
 
 /* remove bullet from category list */
 .forumCategoryList li {

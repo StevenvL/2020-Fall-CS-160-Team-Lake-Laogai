@@ -1,102 +1,119 @@
-import React, { Component } from 'react';
-import { Container, Card, Button, Row, Col } from 'react-bootstrap'
+import React, { useEffect, useState } from "react";
+import { Container, Card, Button, Row, Col } from "react-bootstrap";
+import axios from "axios";
+import { Link, Redirect } from "react-router-dom";
 import ForumCommentForm from "../components/ForumCommentForm";
 
-class ForumPost extends Component {
-	constructor(props){
-		super(props);
-		this.state = {
-			commentForm: false,
-			comments: [],
-			post: ""
-		};
-	}
+function ForumPost(props) {
+  const [showCommentForm, setShowCommentForm] = useState(false);
+  const [comments, setComments] = useState([]);
+  const [post, setPost] = useState({});
 
-	componentDidMount() {
-		this.getComments();
-		this.getPost();
-	}
+  const forumID = props.location.forumID;
+  useEffect(() => {
+    const getComments = async () => {
+      try {
+        const response = await axios(
+          `http://localhost:8000/forums/posts/comments/${props.match.params.postid}`
+        );
+        setComments(response.data);
+        console.log("getComments response", response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    const getPost = async () => {
+      try {
+        const response = await axios(
+          `http://localhost:8000/forums/post/${props.match.params.postid}`
+        );
+        setPost(response.data[0]);
+        console.log("getPost response", response.data[0]);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getComments();
+    getPost();
+  }, []);
 
-	setCommentFormVisible() {
-		this.setState({commentForm: true});
-	}
+  console.log("ForumPost props", props);
 
-	getComments() {
-		fetch(`http://localhost:8000/forums/posts/comments/${this.props.match.params.postid}`)
-		.then(response => response.json())
-		.then(json => this.setState({comments: json}))
-		.catch(err => err)
-	}
+  const CommentBtn = () => (
+    <Col xs={{ offset: 5 }}>
+      <Button
+        onClick={() => setShowCommentForm(!showCommentForm)}
+        className="float-right"
+      >
+        Comment
+      </Button>
+    </Col>
+  );
 
-	getPost() {
-		fetch(`http://localhost:8000/forums/posts/${this.props.match.params.postid}`)
-		.then(response => response.json())
-		.then(json => this.setState({post: json[0]}))
-		.catch(err => err)
-	}
+  return (
+    <Container className="componentBody">
+      {/* <a href="/forums">forum</a>/<a href="">{props.match.params.category}</a>/
+      <a href="#">{post.postTitle}</a> */}
+      <div className="readOthers" align="left">
+        <Link to={`/forums`}>Read other forums</Link>
+      </div>
+      <div className="readOthers" align="left">
+        <Link
+          to={{
+            pathname: `/forums/${props.match.params.category}`,
+            forumID: `${forumID}`,
+          }}
+        >
+          Read other posts
+        </Link>
+      </div>
+      <h1>{post.postTitle}</h1>
+      <Row>
+        <Col>
+          <Card>
+            <Card.Img variant="top" src="/logo.png" />
+            <Card.Body>
+              <Card.Subtitle>User Name</Card.Subtitle>
+              <Card.Text>(Maybe some description on the user)</Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
 
-
-	render() {
-		const CommentBtn = () => (<Col xs={{offset:11}}>
-					<Button onClick={() => this.setCommentFormVisible()}>Comment</Button>
-				</Col>)
-
-		return(
-			<Container className="componentBody">
-			<a href="/forums">forum</a>/<a href="">{this.props.match.params.category}</a>/<a href="#">{this.state.post.postTitle}</a>
-			<h1>{this.state.post.postTitle}</h1>
-			<Row>
-				<Col>
-				<Card>
-			  <Card.Img variant="top" src="/logo.png" />
-			  <Card.Body>
-			    <Card.Subtitle>user name</Card.Subtitle>
-			    <Card.Text>
-			      Maybe some description on the user.
-			    </Card.Text>
-			  </Card.Body>
-			</Card>
-				</Col>
-
-				<Col xs={10}>
-				<Card>
-				<Card.Title>{this.state.post.postTitle}</Card.Title>
-				<Card.Subtitle>{this.state.post.timestamp}</Card.Subtitle>
-				<Card.Text>
-				{this.state.post.postDescription}
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-	            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-	            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-	            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
-	            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-	            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-	            culpa qui officia deserunt mollit anim id est laborum.
-				</Card.Text>
-			</Card>
-				</Col>
-			</Row>
-
-			<Row>
-			{this.state.commentForm? <ForumCommentForm postid={this.props.match.params.postid}/> : <CommentBtn />}
-			</Row>
-
-			{this.state.comments.map((entry, index) => (
-				<Row key={index} className="mt-1 mb-1">
-				<Col>
-				<Card>
-				<Card.Title></Card.Title>
-				<Card.Subtitle>#{index}<span className="float-right">{entry.timestamp}</span></Card.Subtitle>
-					<Card.Body>
-						<Card.Text>{entry.replyDescription}</Card.Text>
-					</Card.Body>
-				</Card>
-				</Col>
-				</Row>
-				))}			
-	
-			</Container>
-			)
-	}
+        <Col xs={10}>
+          <Card>
+            <Card.Title>{post.postTitle}</Card.Title>
+            <br></br>
+            <Card.Subtitle>{post.timestamp}</Card.Subtitle>
+            <br></br>
+            <Card.Text>{post.postDescriptioni}</Card.Text>
+          </Card>
+        </Col>
+      </Row>
+      <Row>
+        {showCommentForm ? (
+          <ForumCommentForm postid={props.match.params.postid} />
+        ) : (
+          <CommentBtn />
+        )}
+      </Row>
+      {comments.map((entry, index) => (
+        <Row key={index} className="mt-1 mb-1">
+          <Col>
+            <Card>
+              <Card.Title></Card.Title>
+              <Card.Subtitle>
+                #{index}
+                <span className="float-right">{entry.timestamp}</span>
+              </Card.Subtitle>
+              <Card.Body>
+                <Card.Text>{entry.replyDescription}</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      ))}
+    </Container>
+  );
 }
 
-export default ForumPost
+export default ForumPost;
