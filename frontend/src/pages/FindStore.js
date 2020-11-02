@@ -53,6 +53,7 @@ function FindStore() {
     setFilteredStores([]);
     const filtered = stores.filter((store) => {
       return store.menu
+        .toLowerCase()
         .split(", ")
         .some((drinkType) => selectedDrinkTypes.includes(drinkType));
     });
@@ -62,12 +63,12 @@ function FindStore() {
   // keep track of what drink types the user selects
   const handleSelectedDrinkTypes = (type) => {
     const tempTypes = [...selectedDrinkTypes];
-    const typeIndex = tempTypes.indexOf(type.typename);
+    const typeIndex = tempTypes.indexOf(type.typename.toLowerCase());
     if (typeIndex !== -1) {
       tempTypes.splice(typeIndex, 1);
       console.log(`Removing ${type.typename} from selectedDrinkTypes...`);
     } else {
-      tempTypes.push(type.typename);
+      tempTypes.push(type.typename.toLowerCase());
       console.log(`Pushing ${type.typename} to selectedDrinkTypes...`);
     }
     setSelectedDrinkTypes(tempTypes);
@@ -164,7 +165,7 @@ function FindStore() {
                 {store.street}, {store.city}, {store.state}
                 <br></br>
                 <span>Menu: </span>
-                {store.menu}
+                <span id="storeMenu">{store.menu}</span>
                 <br></br>
                 <span>Ice Level: </span>
                 {store.ice_level.split(",").join("% ") + "%"}
@@ -201,7 +202,7 @@ function FindStore() {
                 {store.street}, {store.city}, {store.state}
                 <br></br>
                 <span>Menu: </span>
-                {store.menu}
+                <span id="storeMenu">{store.menu}</span>
                 <br></br>
                 <span>Ice Level: </span>
                 {store.ice_level.split(",").join("% ") + "%"}
