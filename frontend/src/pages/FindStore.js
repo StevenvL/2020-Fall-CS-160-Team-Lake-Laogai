@@ -78,7 +78,7 @@ function FindStore() {
   let filterButtons = drinkTypes.map((type, index) => {
     return (
       <FilterButton
-        name={type.typename}
+        name={type.typename.toLowerCase()}
         key={index}
         index={index}
         handleSelectedDrinkTypes={() => handleSelectedDrinkTypes(type)}
