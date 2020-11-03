@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
-import { Container } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
 
 function ForumPosts(props) {
   const [posts, setPosts] = useState([]);
@@ -45,6 +45,7 @@ function ForumPosts(props) {
     <Container className="forumPosts">
       <div className="readAnotherForum">
         <Link to={`/forums`}>Read another forum</Link>
+        <Button  href='/createpost' className="float-right">Post</Button>
       </div>
       {allPosts}
     </Container>
