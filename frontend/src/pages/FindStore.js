@@ -66,10 +66,10 @@ function FindStore() {
     const typeIndex = tempTypes.indexOf(type.typename.toLowerCase());
     if (typeIndex !== -1) {
       tempTypes.splice(typeIndex, 1);
-      console.log(`Removing ${type.typename} from selectedDrinkTypes...`);
+      console.log(`Removing ${type.typename.toLowerCase()} from selectedDrinkTypes...`);
     } else {
       tempTypes.push(type.typename.toLowerCase());
-      console.log(`Pushing ${type.typename} to selectedDrinkTypes...`);
+      console.log(`Pushing ${type.typename.toLowerCase()} to selectedDrinkTypes...`);
     }
     setSelectedDrinkTypes(tempTypes);
   };

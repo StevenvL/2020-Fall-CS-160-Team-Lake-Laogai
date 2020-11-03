@@ -86,7 +86,7 @@ class CreatePost extends Component {
                         <Form.Control required as="textarea" value = {this.state.postBody} onChange = {e => this.setState({postBody: e.target.value})} />
                     </Form.Group>
 
-                    <Button variant="normal" type="submit">
+                    <Button href='/createpost' variant="normal" type="submit">
                         Submit
                 </Button>
                 </Form>
