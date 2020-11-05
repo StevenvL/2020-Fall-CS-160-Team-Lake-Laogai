@@ -92,7 +92,7 @@ function ForumPost(props) {
       </Row>
       <Row>
         {showCommentForm ? (
-          <ForumCommentForm postid={props.match.params.postid} />
+          <ForumCommentForm postid={props.match.params.postid} setShowCommentForm={setShowCommentForm}/>
         ) : (
           <CommentBtn />
         )}

@@ -26,10 +26,17 @@ function ForumCommentForm(props) {
         <Button
           variant="primary"
           type="submit"
-          className="float-right"
+          className="float-left"
           onClick={sendData}
         >
           Comment
+        </Button>
+        <Button
+          variant="secondary"
+          className="float-right"
+          onClick={()=>props.setShowCommentForm(false)}
+        >
+          Cancel
         </Button>
       </Form>
     </Col>
