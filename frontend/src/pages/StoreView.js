@@ -3,6 +3,7 @@ import { Image, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import MenuCardComponent from "../components/MenuCardComponent";
+import "../styling.css"
 
 function StoreView(props) {
   const [storeInfo, setStoreInfo] = useState([]);

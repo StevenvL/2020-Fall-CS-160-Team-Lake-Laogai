@@ -3,6 +3,7 @@ import { Container, Card, Button, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import { Link, Redirect } from "react-router-dom";
 import ForumCommentForm from "../components/ForumCommentForm";
+import "../styling.css"
 
 function ForumPost(props) {
   const [showCommentForm, setShowCommentForm] = useState(false);

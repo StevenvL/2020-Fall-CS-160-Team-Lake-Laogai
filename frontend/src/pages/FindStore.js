@@ -12,6 +12,7 @@ import axios from "axios";
 import FilterButton from "../components/FilterButton";
 import StoreRatings from "../components/StoreRatings";
 import SearchSuggestionList from "../components/SearchSuggestionList";
+import "../styling.css"
 
 function FindStore() {
   const [stores, setStores] = useState([]);
