@@ -26,9 +26,9 @@ function StoreView(props) {
     getStoreInfo();
   }, []);
 
-  let menuCards = drinkMenu.map((drink) => {
+  let menuCards = drinkMenu.map((drink, index) => {
     return (
-      <Col sm="6">
+      <Col sm="6" key={index}>
         <MenuCardComponent drink={drink} />
       </Col>
     );

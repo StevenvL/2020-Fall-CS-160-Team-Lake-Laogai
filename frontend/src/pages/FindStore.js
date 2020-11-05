@@ -18,7 +18,8 @@ function FindStore() {
   const [stores, setStores] = useState([]);
   const [searchStore, setSearchStore] = useState("");
   const [foundStore, setFoundStore] = useState(false);
-  const [goToStore, setGoToStore] = useState("");
+  const [fireSearch, setFireSearch] = useState(false);
+  // const [goToStore, setGoToStore] = useState("");
   const [activeFilteredStoreIndex, setActiveFilteredStoreIndex] = useState(0);
   const [drinkTypes, setDrinkTypes] = useState([]);
   const [selectedDrinkTypes, setSelectedDrinkTypes] = useState([]);
@@ -45,7 +46,7 @@ function FindStore() {
     };
     setTimeout(getAllStores, 2000);
     getAllDrinkTypes();
-    setGoToStore("");
+    setFireSearch(false);
   }, []);
 
   // reload page once a different filter button is selected
@@ -134,14 +135,10 @@ function FindStore() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     console.log("handleFormSubmit e:", e.target[0].value);
-    setGoToStore(e.target[0].value);
+    setSearchStore(e.target[0].value);
+    setTimeout(()=>setFireSearch(true), 300);
   };
-
-  // go to the store info page based on the search bar input
-  if (goToStore.length !== 0) {
-    return <Redirect to={`/stores/${goToStore}`} />;
-  }
-
+  
   // render the corresponding stores
   let storesToRender;
   if (selectedDrinkTypes.length === 0) {
@@ -267,6 +264,9 @@ function FindStore() {
       </ButtonGroup>
 
       {storesToRender}
+
+      {(fireSearch) && (<Redirect to={`/stores/${searchStore}`} />)}
+
     </Container>
   );
 }
