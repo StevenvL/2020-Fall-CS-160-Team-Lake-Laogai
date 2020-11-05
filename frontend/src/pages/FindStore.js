@@ -6,13 +6,15 @@ import {
   Button,
   Row,
   Col,
+  DropdownButton,
+  Dropdown,
 } from "react-bootstrap";
 import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
 import FilterButton from "../components/FilterButton";
 import StoreRatings from "../components/StoreRatings";
 import SearchSuggestionList from "../components/SearchSuggestionList";
-import "../styling.css"
+import "../styling.css";
 
 function FindStore() {
   const [stores, setStores] = useState([]);
@@ -68,10 +70,14 @@ function FindStore() {
     const typeIndex = tempTypes.indexOf(type.typename.toLowerCase());
     if (typeIndex !== -1) {
       tempTypes.splice(typeIndex, 1);
-      console.log(`Removing ${type.typename.toLowerCase()} from selectedDrinkTypes...`);
+      console.log(
+        `Removing ${type.typename.toLowerCase()} from selectedDrinkTypes...`
+      );
     } else {
       tempTypes.push(type.typename.toLowerCase());
-      console.log(`Pushing ${type.typename.toLowerCase()} to selectedDrinkTypes...`);
+      console.log(
+        `Pushing ${type.typename.toLowerCase()} to selectedDrinkTypes...`
+      );
     }
     setSelectedDrinkTypes(tempTypes);
   };
@@ -136,9 +142,9 @@ function FindStore() {
     e.preventDefault();
     console.log("handleFormSubmit e:", e.target[0].value);
     setSearchStore(e.target[0].value);
-    setTimeout(()=>setFireSearch(true), 300);
+    setTimeout(() => setFireSearch(true), 300);
   };
-  
+
   // render the corresponding stores
   let storesToRender;
   if (selectedDrinkTypes.length === 0) {
@@ -224,6 +230,18 @@ function FindStore() {
           className="col-lg-6 offset-lg-3 search-form"
           onSubmit={handleFormSubmit}
         >
+          {/* <DropdownButton
+            as={ButtonGroup}
+            id={`dropdown-variants-primary`}
+            variant="primary"
+            title="dropdownbutton"
+          >
+            <Dropdown.Item eventKey="1">Action</Dropdown.Item>
+            <Dropdown.Item eventKey="2">Another action</Dropdown.Item>
+            <Dropdown.Item eventKey="3" active>
+              Active Item
+            </Dropdown.Item>
+          </DropdownButton> */}
           <input
             className="form-control findStoreInput"
             type="search"
@@ -265,8 +283,7 @@ function FindStore() {
 
       {storesToRender}
 
-      {(fireSearch) && (<Redirect to={`/stores/${searchStore}`} />)}
-
+      {fireSearch && <Redirect to={`/stores/${searchStore}`} />}
     </Container>
   );
 }

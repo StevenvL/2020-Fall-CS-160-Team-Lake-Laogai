@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import Axios from "axios";
 import FormComponent from "../components/FormComponent";
-import "../styling.css"
+import "../styling.css";
 
 function ForumCommentForm(props) {
   const [comment, setComment] = useState("");
@@ -34,7 +34,7 @@ function ForumCommentForm(props) {
         <Button
           variant="secondary"
           className="float-right"
-          onClick={()=>props.setShowCommentForm(false)}
+          onClick={() => props.setShowCommentForm(false)}
         >
           Cancel
         </Button>
