@@ -27,8 +27,6 @@ function Forums() {
         <Link
           to={{
             pathname: `/forums/${forum.category_name}`,
-            forumID: `${forum.forumID}`,
-            category: `${forum.category_name}`,
           }}
         >
           {forum.category_name}

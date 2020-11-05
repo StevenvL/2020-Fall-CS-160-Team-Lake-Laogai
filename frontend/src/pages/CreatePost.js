@@ -1,99 +1,112 @@
-import React, { Component } from 'react';
-import { Form, Button, Container } from 'react-bootstrap'
-import "../styling.css"
+import React, { useEffect, useState } from "react";
+import { Form, Button, Container } from "react-bootstrap";
+import axios from "axios";
+import "../styling.css";
 
+function CreatePost(props) {
+  const [selectedForumID, setSelectedForumID] = useState(1);
+  const [postTitle, setPostTitle] = useState("");
+  const [postBody, setPostBody] = useState("");
+  const [userID, setUserID] = useState(1);
+  const [forumCategories, setForumCategories] = useState([]);
+  const [selectedForumCategory, setSelectedForumCategory] = useState("");
 
-class CreatePost extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            postTitle: "",
-            postBody: "",
-            forumCategories: [],
-            selectedForumID: 1
-        };
-        //this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+  console.log("CreatePost props", props);
 
+  useEffect(() => {
+    const getForumCategories = async () => {
+      try {
+        const response = await axios(`http://localhost:8000/forums`);
+        setForumCategories(response.data)
+        console.log("getForumCategories", response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getForumCategories();
+  }, []);
 
-    //Grabs all category names from backend api
-    //componentDidMount ensures that we grab data before html loads?
-    componentDidMount() {
-        fetch(`http://localhost:8000/forums`)
-            .then((response) => {
-                return response.json();
-            })
-            .then(data => {
-                let categoryNamesFromApi = data.map(rows => {
-                    return { value: rows.forumID, display: rows.category_name }
-                });
-                this.setState({
-                    forumCategories: (categoryNamesFromApi)
-                });
-            }).catch(error => {
-                console.log(error);
-            });
-    }
+  //Will call backend api to post information to database
+  //We should probably add some text validation before submission?
+  const handleSubmit = (event) => {
+    event.preventDefault(); //Doesn't Refresh page after submit. Prolly need to write some method to reset fields and print whether suceeded or not!
 
+    fetch(`http://localhost:8000/forums/post`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        forumCategoryID: selectedForumID,
+        forumTitle: postTitle,
+        forumBody: postBody,
+        userID: userID,
+      }),
+    });
+  };
 
-    //Will call backend api to post information to database
-    //We should probably add some text validation before submission?
-    handleSubmit(event) {
-        event.preventDefault(); //Doesn't Refresh page after submit. Prolly need to write some method to reset fields and print whether suceeded or not!
-      
-        //Need to get userID somehow...
-        let userID = 1;
-       
+  const handleClick = () =>{
+    props.history.goBack()
+  }
 
-        fetch(`http://localhost:8000/forums/post`, {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                forumCategory: this.state.selectedForumID,
-                forumTitle: this.state.postTitle,
-                forumBody: this.state.postBody,
-                userID: userID
-            })
-        });
-    }
+  //Need to change contaner className!!!
+  //I want it too look similar but don't know what to change it to.
 
-    //Need to change contaner className!!!
-    //I want it too look similar but don't know what to change it to.
-    render() {
-        //console.log(this.state.selectedForumID);
-        //console.log(this.state.postTitle);
-        return (
-            <Container className="login-container login-component">
-                <h1>Create a forum post</h1>
-                <Form className="form" onSubmit={this.handleSubmit}>
-                    <Form.Group controlId="forumCategory">
-                        <Form.Label>Select Forum Category</Form.Label>
-                        <Form.Control as="select" value = {this.state.selectedForumID} onChange = {e => this.setState({selectedForumID: e.target.value})}>
-                            {this.state.forumCategories.map((names) => <option key={names.value} value={names.value}>{names.display}</option>)}
-                        </Form.Control>
-                    </Form.Group>
+  //console.log(this.state.selectedForumID);
+  //console.log(this.state.postTitle);
+  return (
+    <Container className="login-container login-component">
+      <h1>Create a forum post</h1>
+      <Form className="form" onSubmit={handleSubmit}>
+        <Form.Group controlId="forumCategory">
+          <Form.Label>Select Forum Category</Form.Label>
+          <Form.Control
+            as="select"
+            value={selectedForumID}
+            onChange={(e) => {
+                console.log("here!!!", e.target.value)
+                setSelectedForumID(e.target.value)
+                setSelectedForumCategory(forumCategories[e.target.value-1].category_name)
+            }}
+          >
+            {forumCategories.map((category) => (
+              <option key={category.forumID} value={category.forumID}>
+                {category.category_name}
+              </option>
+            ))}
+          </Form.Control>
+        </Form.Group>
 
-                    <Form.Group controlId="forumTitle">
-                        <Form.Label>Forum Title</Form.Label>
-                        <Form.Control required placeholder="Forum Title" value = {this.state.postTitle} onChange = {e => this.setState({postTitle: e.target.value})} />
-                    </Form.Group>
+        <Form.Group controlId="forumTitle">
+          <Form.Label>Forum Title</Form.Label>
+          <Form.Control
+            required
+            placeholder="Forum Title"
+            value={postTitle}
+            onChange={(e) => setPostTitle(e.target.value)}
+          />
+        </Form.Group>
 
-                    <Form.Group controlId="forumBodyGroup">
-                        <Form.Label>Forum Body</Form.Label>
-                        <Form.Control required as="textarea" value = {this.state.postBody} onChange = {e => this.setState({postBody: e.target.value})} />
-                    </Form.Group>
+        <Form.Group controlId="forumBodyGroup">
+          <Form.Label>Forum Body</Form.Label>
+          <Form.Control
+            required
+            as="textarea"
+            value={postBody}
+            onChange={(e) => setPostBody(e.target.value)}
+          />
+        </Form.Group>
 
-                    <Button href='/createpost' variant="normal" type="submit">
-                        Submit
-                </Button>
-                </Form>
-            </Container>
-        );
-    }
+        <Button href={`/forums/${selectedForumCategory}`} variant="normal" type="submit">
+          Submit
+        </Button>
+        <Button onClick={handleClick} variant="normal" className="ml-5">
+          Cancel
+        </Button>
+      </Form>
+    </Container>
+  );
 }
 
-export default CreatePost
+export default CreatePost;

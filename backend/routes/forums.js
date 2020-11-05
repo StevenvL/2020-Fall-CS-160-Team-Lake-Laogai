@@ -20,10 +20,22 @@ router.get("/posts", function (req, res) {
   });
 });
 
-router.get("/posts/:forumid", function (req, res, next) {
-  let forumid = req.params["forumid"];
+// router.get("/posts/:forumid", function (req, res, next) {
+//   let forumid = req.params["forumid"];
+//   connection.query(
+//     `SELECT * FROM forum_posts WHERE forumID=${forumid}`,
+//     function (error, results, fields) {
+//       if (error) throw error;
+//       console.log(results);
+//       res.json(results);
+//     }
+//   );
+// });
+
+router.get("/posts/:forumname", function (req, res, next) {
+  let forumname = req.params["forumname"];
   connection.query(
-    `SELECT * FROM forum_posts WHERE forumID=${forumid}`,
+    `SELECT * FROM forum_posts JOIN forums USING(forumID) WHERE category_name = '${forumname}'`,
     function (error, results, fields) {
       if (error) throw error;
       console.log(results);
@@ -74,14 +86,14 @@ router.post("/post/comment", function (req, res, next) {
 router.post("/post", function (req, res, next) {
   let forumPostTitle = req.body.forumTitle;
   let forumPostBody = req.body.forumBody;
-  let forumCategory = req.body.forumCategory;
+  let forumCategoryID = req.body.forumCategoryID;
   let userID = req.body.userID;
   console.log(
-    `we got ${forumCategory}, ${userID}, '${forumPostTitle}', '${forumPostBody}`
+    `we got ${forumCategoryID}, ${userID}, '${forumPostTitle}', '${forumPostBody}`
   );
   //We ignore forumPostID and Timestamp. SQL inserts those automatically if we dont specify.
   connection.query(
-    `INSERT INTO forum_posts (forumID, userid, postTitle, postDescriptioni) VALUES (${forumCategory}, ${userID}, '${forumPostTitle}', '${forumPostBody}');`,
+    `INSERT INTO forum_posts (forumID, userid, postTitle, postDescriptioni) VALUES (${forumCategoryID}, ${userID}, '${forumPostTitle}', '${forumPostBody}');`,
     function (error, results, fields) {
       if (error) {
         console.log(error);

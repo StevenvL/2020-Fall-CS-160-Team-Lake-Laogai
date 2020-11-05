@@ -10,8 +10,9 @@ function ForumPost(props) {
   const [comments, setComments] = useState([]);
   const [post, setPost] = useState({});
 
-  const forumID = props.location.forumID;
   useEffect(() => {
+    console.log("ForumPost props", props);
+
     const getComments = async () => {
       try {
         const response = await axios(
@@ -23,6 +24,7 @@ function ForumPost(props) {
         console.log(err);
       }
     };
+
     const getPost = async () => {
       try {
         const response = await axios(
@@ -34,11 +36,10 @@ function ForumPost(props) {
         console.log(err);
       }
     };
+
     getComments();
     getPost();
   }, []);
-
-  console.log("ForumPost props", props);
 
   const CommentBtn = () => (
     <Col xs={{ offset: 5 }}>
@@ -62,7 +63,6 @@ function ForumPost(props) {
         <Link
           to={{
             pathname: `/forums/${props.match.params.category}`,
-            forumID: `${forumID}`,
           }}
         >
           Read other posts

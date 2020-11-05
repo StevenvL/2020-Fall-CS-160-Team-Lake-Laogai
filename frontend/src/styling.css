@@ -359,6 +359,12 @@ body {
   font-weight: bold;
   color: #54457f;
 }
+
+.forumPostsTitle {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
 /*******************/
 
 /********* Forum Post **********/
