@@ -9,7 +9,7 @@ function CreatePost(props) {
   const [postBody, setPostBody] = useState("");
   const [userID, setUserID] = useState(1);
   const [forumCategories, setForumCategories] = useState([]);
-  const [selectedForumCategory, setSelectedForumCategory] = useState("");
+  const [selectedForumCategory, setSelectedForumCategory] = useState("Healthy Boba");
 
   console.log("CreatePost props", props);
 
@@ -26,10 +26,21 @@ function CreatePost(props) {
     getForumCategories();
   }, []);
 
+  console.log("useriddd", userID);
+
   //Will call backend api to post information to database
   //We should probably add some text validation before submission?
   const handleSubmit = (event) => {
     event.preventDefault(); //Doesn't Refresh page after submit. Prolly need to write some method to reset fields and print whether suceeded or not!
+
+    // const url = "http://localhost:8000/forums/post"
+    // const userInputData = {forumTitle: postTitle, forumBody: postBody, forumCategoryID: JSON.stringify(selectedForumID), userID: JSON.stringify(userID)}
+    // const sendData = () => {
+    //     axios.post(url, userInputData)  // post request to api
+    //     .then(res => console.log('Data Sent'))
+    //     .catch(err => console.log("hello error:", err)) 
+    // }
+    // sendData();
 
     fetch(`http://localhost:8000/forums/post`, {
       method: "POST",
@@ -45,6 +56,8 @@ function CreatePost(props) {
       }),
     });
   };
+
+  console.log("selectedForumCategory ",selectedForumCategory);
 
   const handleClick = () =>{
     props.history.goBack()
