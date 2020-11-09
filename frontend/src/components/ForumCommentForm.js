@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import Axios from "axios";
 import FormComponent from "../components/FormComponent";
+import "../styling.css"
 
 function ForumCommentForm(props) {
   const [comment, setComment] = useState("");
