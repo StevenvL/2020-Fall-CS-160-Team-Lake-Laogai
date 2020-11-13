@@ -2,10 +2,10 @@ const mysql = require('mysql');
 
 
 let connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'laogai',
-  password: 'boba',
-  database: 'pokeboba',
+  host: '127.0.0.1',
+  user: 'pokeboba',
+  password: 'boba1234',
+  database: 'PokeBobaDB',
   port: '3306'
 });
 
