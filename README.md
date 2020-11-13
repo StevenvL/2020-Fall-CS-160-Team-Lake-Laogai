@@ -32,16 +32,24 @@ root
     |_index.js      (Root for rendering the application, No need to modify on this)
     |_App.js        (Render view according to the route)
     |_components
-      |_Home.js    (Render homepage view)
-      |_Login.js   (Render login view)
-      |_ ....
+      |_FilterButton.js    
+      |_FormComponent.js   
+      |_ForumComponetForms.js
+      |_InputLabel.js
+      |_MenuCardCompont.js
+      |_RatingStarOff.js
+      |_SearchSuggestion.js
+      |_StoreRating.js
+      |_UserInput.js
   
 |_backend
   |_app.js
   |_sql_conn.js  (creating connection to sql and sql login information)
   |_routes (control routing)
     |_ users.js (in charge of all CRUD operation related to user)
-    |_ .... 
+    |_ stores.js
+    |_index.js
+    |_forums.js 
   
 ```
 
