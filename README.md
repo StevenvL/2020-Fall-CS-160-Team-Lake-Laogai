@@ -31,6 +31,7 @@ root
   |_src (stores index and components, we could organized them to different sub folder)
     |_index.js      (Root for rendering the application, No need to modify on this)
     |_App.js        (Render view according to the route)
+    |_ConnectionTest.js
     |_components
       |_FilterButton.js    
       |_FormComponent.js   
@@ -41,15 +42,37 @@ root
       |_SearchSuggestion.js
       |_StoreRating.js
       |_UserInput.js
+    |_pages
+      |_AddStore.js
+      |_Blogs.js
+      |_CreatePost.js
+      |_FindStore.js
+      |_ForumPost.js
+      |_ForumPosts.js
+      |_Forums.js
+      |_Header.js
+      |_Home.js
+      |_Login.js
+      |_Owner.js
+      |_SignUp.js
+      |_StoreView.js
   
 |_backend
   |_app.js
   |_sql_conn.js  (creating connection to sql and sql login information)
   |_routes (control routing)
-    |_ users.js (in charge of all CRUD operation related to user)
-    |_ stores.js
+    |_users.js (in charge of all CRUD operation related to user)
+    |_stores.js
     |_index.js
     |_forums.js 
+
+|_test-automation
+  |_integration
+    |_createPostTest.js
+    |_displayFindStorePage.js
+    |_displayForumPostTest.js
+    |_findStoreUserInput.js
+    |_store-add-form.spec.js
   
 ```
 
