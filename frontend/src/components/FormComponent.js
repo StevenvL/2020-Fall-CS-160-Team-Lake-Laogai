@@ -2,6 +2,7 @@ import React from 'react'
 import { Form } from 'react-bootstrap'
 import InputLabel from './InputLabel'
 import UserInput from './UserInput'
+import "../styling.css"
 
 function FormComponent(props){
     return(

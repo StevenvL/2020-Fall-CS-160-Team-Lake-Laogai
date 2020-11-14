@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
 import { Container, Button } from "react-bootstrap";
+import "../styling.css"
 
 function ForumPosts(props) {
   const [posts, setPosts] = useState([]);
