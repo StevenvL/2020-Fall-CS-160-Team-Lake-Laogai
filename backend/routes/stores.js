@@ -121,8 +121,7 @@ router.post("/", function (req, res) {
       if (err) {
         console.log(err);
       }
-      res.json(result);
-      // console.log("Number of records inserted: " + result.affectedRows);
+      console.log("Number of records inserted: " + result.affectedRows);
     }
   );
 });
