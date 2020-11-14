@@ -25,6 +25,7 @@ function Forums() {
     return (
       <div key={index} className="forumCard">
         <Link
+          className={forum.category_name}
           to={{
             pathname: `/forums/${forum.category_name}`,
             forumID: `${forum.forumID}`,
