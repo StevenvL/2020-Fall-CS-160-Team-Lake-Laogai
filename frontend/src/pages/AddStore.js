@@ -27,6 +27,7 @@ function AddStore(){
     }
 
     return(
+<<<<<<< HEAD
         <Container className="componentBody">
             <h1> Add a New Store</h1>
    
@@ -92,5 +93,72 @@ function AddStore(){
     )
     
 }
+=======
+            <Container className="componentBody">
+                <h1> Add a New Store</h1>
+       
+                <Form className="form addStoreForm">
+                    <FormComponent 
+                        label="Store Name" 
+                        placeholder="boba store name"
+                        className="storeNameInput"
+                        setInput = {setStoreName}
+                    />
+                    <FormComponent 
+                        label="Address" 
+                        placeholder="1234 Main St" 
+                        className="storeAddressInput"
+                        setInput = {setAddress}
+                    />
+                    <Form.Row>         
+                        <FormComponent 
+                            format={Col}
+                            label="City" 
+                            className="storeCityInput"
+                            setInput = {setCity}
+                        />                   
+                        <FormComponent
+                            format={Col} 
+                            label = "State"
+                            className="storeStateInput"
+                            setInput={setState}
+                        />
+                        <FormComponent
+                            format={Col} 
+                            label = "Zip"
+                            className="storeZipInput"
+                            setInput={setZip}
+                        />
+                    </Form.Row>
+                    <FormComponent 
+                        label="Menu"
+                        placeholder="salted cheese milk tea, brown sugar boba, fruit tea, ... " 
+                        className="storeMenuInput"
+                        setInput={setMenu}
+                    />
+                    <FormComponent 
+                        label = "Sugar Level"
+                        placeholder="25% 50% 75%" 
+                        className="storeSugarInput"
+                        setInput={setSugarLevel}
+                    />
+                    <FormComponent 
+                        label = "Ice Level"
+                        placeholder = "25% 50% 75%" 
+                        className="storeIceInput"
+                        setInput = {setIceLevel}
+                    /> 
+                    <Button variant="outline" onClick={sendData} className="storeAddButton"  href="/findStore">
+                        Add
+                    </Button>
+                    <Button variant="outline" href="/findStore" className="ml-2 storeCancelButton">
+                        Cancel
+                    </Button>
+                </Form>         
+            </Container>
+        )
+        
+    }
+>>>>>>> branch5
 
 export default AddStore;

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Form, Button, Container } from 'react-bootstrap'
-import "../styling.css"
 
 
 class CreatePost extends Component {
@@ -40,7 +39,7 @@ class CreatePost extends Component {
     //Will call backend api to post information to database
     //We should probably add some text validation before submission?
     handleSubmit(event) {
-        event.preventDefault(); //Doesn't Refresh page after submit. Prolly need to write some method to reset fields and print whether suceeded or not!
+        //event.preventDefault(); //Doesn't Refresh page after submit. Prolly need to write some method to reset fields and print whether suceeded or not!
       
         //Need to get userID somehow...
         let userID = 1;
@@ -87,7 +86,7 @@ class CreatePost extends Component {
                         <Form.Control required as="textarea" value = {this.state.postBody} onChange = {e => this.setState({postBody: e.target.value})} />
                     </Form.Group>
 
-                    <Button href='/createpost' variant="normal" type="submit">
+                    <Button variant="normal" type="submit">
                         Submit
                 </Button>
                 </Form>
