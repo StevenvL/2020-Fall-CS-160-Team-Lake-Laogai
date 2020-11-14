@@ -46,8 +46,8 @@ root
   |_app.js
   |_sql_conn.js  (creating connection to sql and sql login information)
   |_routes (control routing)
-    |_ users.js (in charge of all CRUD operation related to user)
-    |_ stores.js
+    |_users.js (in charge of all CRUD operation related to user)
+    |_stores.js
     |_index.js
     |_forums.js 
   
