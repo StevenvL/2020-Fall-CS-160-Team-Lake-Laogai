@@ -8,7 +8,7 @@ function FormComponent(props){
     return(
         <Form.Group as={props.format}>
             <InputLabel label = {props.label} />            
-            <UserInput placeholder = {props.placeholder} setInput = {props.setInput}/>
+            <UserInput className={props.className} placeholder = {props.placeholder} setInput={props.setInput}/>
         </Form.Group>
     )
 }
