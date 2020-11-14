@@ -1,5 +1,5 @@
-describe("load find a store page", ()=>{
-	it("successfully loaded", ()=>{
+describe("Load find a store page", ()=>{
+	it("should be loaded successfully", ()=>{
 		cy.visit("http://localhost:3000/findStore")
 	})
 })
