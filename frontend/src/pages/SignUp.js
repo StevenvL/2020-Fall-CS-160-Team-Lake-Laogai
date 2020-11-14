@@ -1,6 +1,5 @@
 import React from 'react'
 import { Form, Button, Container } from 'react-bootstrap'
-import "../styling.css"
 
 function SignUp(){
     return(

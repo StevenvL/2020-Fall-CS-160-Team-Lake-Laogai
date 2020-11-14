@@ -1,7 +1,6 @@
 import React from "react";
 import RatingStarOff from "./RatingStarOff";
 import RatingStarOn from "./RatingStarOn";
-import "../styling.css"
 
 function StoreRatings({ ratings }) {
   let whiteStars = [];

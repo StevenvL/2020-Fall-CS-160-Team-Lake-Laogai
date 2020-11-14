@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Card, CardDeck, Button } from 'react-bootstrap'
-import "../styling.css"
 
 function Blogs(){
     return(

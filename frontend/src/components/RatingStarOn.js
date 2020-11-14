@@ -1,6 +1,4 @@
 import React from "react";
-import "../styling.css"
-
 function RatingStarOn() {
   return (
     <img

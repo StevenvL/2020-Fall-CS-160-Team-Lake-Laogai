@@ -2,7 +2,6 @@ import Navbar from 'react-bootstrap/Navbar'
 import Button from 'react-bootstrap/Button'
 import Nav from 'react-bootstrap/Nav'
 import React from 'react'
-import "../styling.css"
 
 function Header(){
     return(

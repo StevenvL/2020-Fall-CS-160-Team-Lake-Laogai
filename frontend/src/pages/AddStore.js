@@ -2,7 +2,6 @@ import React , {useState} from 'react'
 import Axios from 'axios'
 import { Container , Form , Col , Button} from 'react-bootstrap'
 import FormComponent from '../components/FormComponent'
-import "../styling.css"
 
 
 function AddStore(){
