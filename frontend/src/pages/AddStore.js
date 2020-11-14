@@ -81,10 +81,10 @@ function AddStore(){
                         className="storeIceInput"
                         setInput = {setIceLevel}
                     /> 
-                    <Button variant="outline" className="storeAddButton" onClick={sendData} href="/findStore">
+                    <Button variant="outline" onClick={sendData} className="storeAddButton"  href="/findStore">
                         Add
                     </Button>
-                    <Button variant="outline" className="storeCancelButton" href="/findStore" className="ml-2">
+                    <Button variant="outline" href="/findStore" className="ml-2 storeCancelButton">
                         Cancel
                     </Button>
                 </Form>         
