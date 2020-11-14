@@ -1,5 +1,6 @@
 import React from 'react'
 import {Form }from 'react-bootstrap'
+import "../styling.css"
 
 function UserInput(props){
     return(
