@@ -63,8 +63,6 @@ describe('Testing Add a New Store Page', () => {
 
     context("Store Add Form submission", () => {       
         it("Add a new store on submit and return to find store page", () =>{          
-            cy.server()
-            cy.route('POST', addStoreAPI, testStore).as('addNewStore')
             cy.get('.storeAddButton').click()
             cy.url().should('eq', findStorePage)            
         })
