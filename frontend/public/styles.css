@@ -7,3 +7,381 @@ body {
   background: linear-gradient(#fd749b, #281ac8);
   background-attachment: fixed;
 }
+
+/* react component in Blogs and Forums*/
+.componentBody {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 2%;
+  text-align: center;
+  background-color: white;
+}
+
+/* login component in Login, size smaller than componentBody */
+.login-container {
+  text-align: center;
+  margin-top: 2%;
+  max-width: 50%;
+  padding: 5%;
+  background-color: white;
+}
+
+/* form styling, all text align left */
+.form {
+  text-align: left;
+  padding: 2%;
+}
+
+/* card for blogs and forums  */
+.card {
+  text-align: left;
+  padding: 2%;
+  margin-bottom: 2%;
+}
+
+/* home page image */
+.home-image {
+  width: 500px;
+  height: 300px;
+}
+
+/* home page text */
+.home-text {
+  text-align: left;
+}
+
+/*******************/
+/* button for all pages*/
+/*  */
+.btn-normal {
+  background-color: #de57c4;
+  color: white;
+}
+
+.btn-outline {
+  border-color: #de57c4;
+  color: #de57c4;
+}
+
+.btn-outline:hover {
+  background-color: #de57c4;
+  color: white;
+}
+/*******************/
+
+/*******************/
+/* Find store page */
+/*                 */
+.search-boba {
+  background-image: url("/boba.jpg");
+  color: white;
+  background-size: cover;
+  text-align: center;
+  margin-top: 2%;
+  position: relative;
+}
+
+.search-form {
+  padding: 2%;
+  display: flex;
+  border-radius: 20px;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.findStoreInput {
+  border: gray;
+  box-shadow: none;
+  border-radius: 10px 0px 0px 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 20px;
+}
+
+.findStoreInput:focus {
+  border: gray;
+  box-shadow: none;
+}
+
+#searchButtonOuter {
+  border-radius: 0px 10px 10px 0px;
+}
+
+.searchButton {
+  width: 25px;
+  height: 25px;
+  background: url("/search-solid.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.optionActive {
+  color: lightcoral;
+}
+
+.searchSuggestionList {
+  /* border: 1px solid red; */
+  position: absolute;
+  right: 28%;
+  left: 28%;
+  z-index: 2;
+  background-color: white;
+  color: black;
+  font-size: 35px;
+}
+
+.searchSuggestionList p {
+  border: 1px solid lightgray;
+  margin: 0;
+  padding: 10px;
+}
+
+.searchSuggestionList p:hover {
+  color: lightcoral;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.filterButtons {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+
+.filterButton {
+  background-color: #ff8c61;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-left: 2px solid #4e5283;
+  padding: 15px 5px;
+  display: flex;
+  flex: 1 1 auto;
+  text-align: center;
+  justify-content: center;
+  text-transform: capitalize;
+}
+
+.filterBtnClicked {
+  background-color: #190e4f;
+  color: white;
+  box-shadow: none;
+  border-color: #190e4f;
+  border-left: 2px solid #ff8c61;
+}
+
+.button0 {
+  border-left: none;
+}
+
+.filterButton:focus,
+.filterButton:active {
+  box-shadow: none;
+  outline: none;
+}
+
+.loadingDiv {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.loadingDiv img {
+  width: 30%;
+  height: 30%;
+}
+.loadingDiv p {
+  margin-top: 50px;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.singleStoreDiv {
+  border: 4px solid #190e4f;
+  max-width: 700px;
+  height: 340px;
+  padding: 20px;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 5px #0d324d;
+  /* text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start; */
+}
+
+.singleStoreDiv a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 30px;
+  color: #ffeecf;
+  /* display: flex;
+  align-items: center; */
+  /* border: 1px solid red; */
+}
+.singleStoreDiv a:hover {
+  cursor: pointer;
+  color: #ffe46b;
+}
+
+.singleStoreDiv p {
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+  line-height: 35px;
+  color: #ebebeb;
+  padding: 15px;
+}
+
+.singleStoreDiv span {
+  color: rgb(230, 195, 44);
+  font-size: 20px;
+}
+
+#storeMenu {
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 15px;
+  color: #ebebeb;
+}
+
+.starRating {
+  padding: 4px;
+}
+/************************/
+
+/*******************/
+/* Store View Page */
+/*                 */
+.findAnotherStore {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+.findAnotherStore a {
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #d8b82b;
+}
+.findAnotherStore a:hover {
+  color: white;
+  background-color: #a846a0;
+}
+/*******************/
+
+/********* Forum **********/
+/* list of forum categories */
+.forumContainer {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 2%;
+  text-align: center;
+}
+
+.forumContainer h1 {
+  font-size: 60px;
+}
+
+.forumCategoriesBox {
+  border: 1px solid #44355b;
+  border-radius: 5%;
+  width: 90%;
+  padding: 5%;
+  margin: 10% auto;
+  /* background-color: #ead2ac; */
+}
+
+.forumCard {
+  padding: 50px;
+  border: 5px solid rgba(0, 0, 255, 0.2);
+  margin: 40px;
+  border-radius: 10px;
+  box-shadow: 13px 13px 2px 1px rgba(0, 0, 255, 0.2);
+}
+
+.forumCard a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 30px;
+  color: #fcab64;
+}
+
+.forumCard a:hover {
+  color: #fcd29f;
+}
+/*******************/
+
+/********* Forum Posts **********/
+.forumPosts {
+  width: 80%;
+  text-align: left;
+  padding: 2%;
+}
+
+.readAnotherForum {
+  margin: 20px;
+  margin-left: 0;
+}
+.readAnotherForum a {
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #f6feaa;
+}
+.readAnotherForum a:hover {
+  color: white;
+  background-color: #a846a0;
+}
+
+.postCard {
+  /* border: 1px solid red; */
+  border-radius: 20px;
+  padding: 6%;
+  margin: 40px;
+  background-color: rgba(252, 234, 222, 0.8);
+  box-shadow: 13px 13px 0 0 #b88c9e;
+}
+.postCard a {
+  text-decoration: none;
+  color: #4c243b;
+  float: right;
+}
+.postCard a:hover {
+  font-weight: bold;
+  color: #54457f;
+}
+/*******************/
+
+/********* Forum Post **********/
+.readOthers {
+  margin: 20px;
+  margin-left: 0;
+}
+.readOthers a {
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #44355b;
+}
+.readOthers a:hover {
+  color: white;
+  background-color: #a846a0;
+}
+
+/*******************/
+
+/* remove bullet from category list */
+.forumCategoryList li {
+  list-style-type: none;
+  margin: 2%;
+}

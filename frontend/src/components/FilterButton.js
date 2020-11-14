@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styling.css"
+// import { Button } from "react-bootstrap";
 
 function FilterButton({ name, index, handleSelectedDrinkTypes }) {
   const [isClicked, setIsClicked] = useState(false);

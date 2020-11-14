@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Form, Button, Container } from 'react-bootstrap'
-import "../styling.css"
 
 
 class CreatePost extends Component {
@@ -87,7 +86,7 @@ class CreatePost extends Component {
                         <Form.Control required as="textarea" value = {this.state.postBody} onChange = {e => this.setState({postBody: e.target.value})} />
                     </Form.Group>
 
-                    <Button href='/createpost' variant="normal" type="submit">
+                    <Button variant="normal" type="submit">
                         Submit
                 </Button>
                 </Form>

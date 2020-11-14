@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container, Col, Row } from "react-bootstrap";
 import axios from "axios";
-import "../styling.css"
 
 function Home() {
   const [user, setUser] = useState([]);

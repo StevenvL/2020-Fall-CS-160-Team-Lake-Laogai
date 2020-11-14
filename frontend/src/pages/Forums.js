@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "../styling.css"
 
 function Forums() {
   const [forums, setForums] = useState([]);
@@ -25,7 +24,6 @@ function Forums() {
     return (
       <div key={index} className="forumCard">
         <Link
-          className={forum.category_name}
           to={{
             pathname: `/forums/${forum.category_name}`,
             forumID: `${forum.forumID}`,

@@ -3,7 +3,6 @@ import { Image, Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import MenuCardComponent from "../components/MenuCardComponent";
-import "../styling.css"
 
 function StoreView(props) {
   const [storeInfo, setStoreInfo] = useState([]);
@@ -26,9 +25,9 @@ function StoreView(props) {
     getStoreInfo();
   }, []);
 
-  let menuCards = drinkMenu.map((drink, index) => {
+  let menuCards = drinkMenu.map((drink) => {
     return (
-      <Col sm="6" key={index}>
+      <Col sm="6">
         <MenuCardComponent drink={drink} />
       </Col>
     );

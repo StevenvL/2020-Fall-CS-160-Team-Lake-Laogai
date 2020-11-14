@@ -3,7 +3,6 @@ import { Container, Card, Button, Row, Col } from "react-bootstrap";
 import axios from "axios";
 import { Link, Redirect } from "react-router-dom";
 import ForumCommentForm from "../components/ForumCommentForm";
-import "../styling.css"
 
 function ForumPost(props) {
   const [showCommentForm, setShowCommentForm] = useState(false);
@@ -44,7 +43,7 @@ function ForumPost(props) {
     <Col xs={{ offset: 5 }}>
       <Button
         onClick={() => setShowCommentForm(!showCommentForm)}
-        className="float-right comment"
+        className="float-right"
       >
         Comment
       </Button>
@@ -71,7 +70,7 @@ function ForumPost(props) {
       <h1>{post.postTitle}</h1>
       <Row>
         <Col>
-          <Card className="user-info">
+          <Card>
             <Card.Img variant="top" src="/logo.png" />
             <Card.Body>
               <Card.Subtitle>User Name</Card.Subtitle>
@@ -81,7 +80,7 @@ function ForumPost(props) {
         </Col>
 
         <Col xs={10}>
-          <Card className="post-info">
+          <Card>
             <Card.Title>{post.postTitle}</Card.Title>
             <br></br>
             <Card.Subtitle>{post.timestamp}</Card.Subtitle>

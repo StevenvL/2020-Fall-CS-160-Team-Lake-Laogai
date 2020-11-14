@@ -12,14 +12,12 @@ import axios from "axios";
 import FilterButton from "../components/FilterButton";
 import StoreRatings from "../components/StoreRatings";
 import SearchSuggestionList from "../components/SearchSuggestionList";
-import "../styling.css"
 
 function FindStore() {
   const [stores, setStores] = useState([]);
   const [searchStore, setSearchStore] = useState("");
   const [foundStore, setFoundStore] = useState(false);
-  const [fireSearch, setFireSearch] = useState(false);
-  // const [goToStore, setGoToStore] = useState("");
+  const [goToStore, setGoToStore] = useState("");
   const [activeFilteredStoreIndex, setActiveFilteredStoreIndex] = useState(0);
   const [drinkTypes, setDrinkTypes] = useState([]);
   const [selectedDrinkTypes, setSelectedDrinkTypes] = useState([]);
@@ -46,7 +44,7 @@ function FindStore() {
     };
     setTimeout(getAllStores, 2000);
     getAllDrinkTypes();
-    setFireSearch(false);
+    setGoToStore("");
   }, []);
 
   // reload page once a different filter button is selected
@@ -68,10 +66,10 @@ function FindStore() {
     const typeIndex = tempTypes.indexOf(type.typename.toLowerCase());
     if (typeIndex !== -1) {
       tempTypes.splice(typeIndex, 1);
-      console.log(`Removing ${type.typename.toLowerCase()} from selectedDrinkTypes...`);
+      console.log(`Removing ${type.typename} from selectedDrinkTypes...`);
     } else {
       tempTypes.push(type.typename.toLowerCase());
-      console.log(`Pushing ${type.typename.toLowerCase()} to selectedDrinkTypes...`);
+      console.log(`Pushing ${type.typename} to selectedDrinkTypes...`);
     }
     setSelectedDrinkTypes(tempTypes);
   };
@@ -135,10 +133,14 @@ function FindStore() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     console.log("handleFormSubmit e:", e.target[0].value);
-    setSearchStore(e.target[0].value);
-    setTimeout(()=>setFireSearch(true), 300);
+    setGoToStore(e.target[0].value);
   };
-  
+
+  // go to the store info page based on the search bar input
+  if (goToStore.length !== 0) {
+    return <Redirect to={`/stores/${goToStore}`} />;
+  }
+
   // render the corresponding stores
   let storesToRender;
   if (selectedDrinkTypes.length === 0) {
@@ -264,9 +266,6 @@ function FindStore() {
       </ButtonGroup>
 
       {storesToRender}
-
-      {(fireSearch) && (<Redirect to={`/stores/${searchStore}`} />)}
-
     </Container>
   );
 }

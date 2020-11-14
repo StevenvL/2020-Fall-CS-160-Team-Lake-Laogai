@@ -13,7 +13,6 @@ import StoreView from "./pages/StoreView";
 import AddStore from "./pages/AddStore";
 import CreatePost from "./pages/CreatePost.js";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import "./styling.css";
 
 function App() {
   return (
