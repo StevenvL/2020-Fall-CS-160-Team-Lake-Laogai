@@ -25,7 +25,7 @@ router.get("/posts/:forumid", function (req, res, next) {
   connection.query(
     `SELECT * FROM forum_posts WHERE forumID=${forumid}`,
     function (error, results, fields) {
-      if (error) throw error;
+      if (error) res.status(400);
       console.log(results);
       res.json(results);
     }

@@ -44,7 +44,7 @@ function ForumPost(props) {
     <Col xs={{ offset: 5 }}>
       <Button
         onClick={() => setShowCommentForm(!showCommentForm)}
-        className="float-right"
+        className="float-right comment"
       >
         Comment
       </Button>
@@ -71,7 +71,7 @@ function ForumPost(props) {
       <h1>{post.postTitle}</h1>
       <Row>
         <Col>
-          <Card>
+          <Card className="user-info">
             <Card.Img variant="top" src="/logo.png" />
             <Card.Body>
               <Card.Subtitle>User Name</Card.Subtitle>
@@ -81,7 +81,7 @@ function ForumPost(props) {
         </Col>
 
         <Col xs={10}>
-          <Card>
+          <Card className="post-info">
             <Card.Title>{post.postTitle}</Card.Title>
             <br></br>
             <Card.Subtitle>{post.timestamp}</Card.Subtitle>
@@ -98,7 +98,7 @@ function ForumPost(props) {
         )}
       </Row>
       {comments.map((entry, index) => (
-        <Row key={index} className="mt-1 mb-1">
+        <Row key={index} className="mt-1 mb-1 comment-display">
           <Col>
             <Card>
               <Card.Title></Card.Title>
