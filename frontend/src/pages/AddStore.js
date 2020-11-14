@@ -26,62 +26,70 @@ function AddStore(){
     }
 
     return(
-        <Container className="componentBody">
-            <h1> Add a New Store</h1>
-   
-            <Form className="form">
-                <FormComponent 
-                    label="Store Name" 
-                    placeholder="boba store name"
-                    setInput = {setStoreName}
-                />
-                <FormComponent 
-                    label="Address" 
-                    placeholder="1234 Main St" 
-                    setInput = {setAddress}
-                />
-                <Form.Row>         
+            <Container className="componentBody">
+                <h1> Add a New Store</h1>
+       
+                <Form className="form addStoreForm">
                     <FormComponent 
-                        format={Col}
-                        label="City" 
-                        setInput = {setCity}
-                    />                   
-                    <FormComponent
-                        format={Col} 
-                        label = "State"
-                        setInput={setState}
+                        label="Store Name" 
+                        placeholder="boba store name"
+                        className="storeNameInput"
+                        setInput = {setStoreName}
                     />
-                    <FormComponent
-                        format={Col} 
-                        label = "Zip"
-                        setInput={setZip}
+                    <FormComponent 
+                        label="Address" 
+                        placeholder="1234 Main St" 
+                        className="storeAddressInput"
+                        setInput = {setAddress}
                     />
-                </Form.Row>
-                <FormComponent 
-                    label="Menu"
-                    placeholder="salted cheese milk tea, brown sugar boba, fruit tea, ... " 
-                    setInput={setMenu}
-                />
-                <FormComponent 
-                    label = "Sugar Level"
-                    placeholder="25% 50% 75%" 
-                    setInput={setSugarLevel}
-                />
-                <FormComponent 
-                    label = "Ice Level"
-                    placeholder = "25% 50% 75%" 
-                    setInput = {setIceLevel}
-                /> 
-                <Button variant="outline" onClick={sendData} href="/findStore">
-                    Add
-                </Button>
-                <Button variant="outline" href="/findStore" className="ml-2">
-                    Cancel
-                </Button>
-            </Form>         
-        </Container>
-    )
-    
-}
+                    <Form.Row>         
+                        <FormComponent 
+                            format={Col}
+                            label="City" 
+                            className="storeCityInput"
+                            setInput = {setCity}
+                        />                   
+                        <FormComponent
+                            format={Col} 
+                            label = "State"
+                            className="storeStateInput"
+                            setInput={setState}
+                        />
+                        <FormComponent
+                            format={Col} 
+                            label = "Zip"
+                            className="storeZipInput"
+                            setInput={setZip}
+                        />
+                    </Form.Row>
+                    <FormComponent 
+                        label="Menu"
+                        placeholder="salted cheese milk tea, brown sugar boba, fruit tea, ... " 
+                        className="storeMenuInput"
+                        setInput={setMenu}
+                    />
+                    <FormComponent 
+                        label = "Sugar Level"
+                        placeholder="25% 50% 75%" 
+                        className="storeSugarInput"
+                        setInput={setSugarLevel}
+                    />
+                    <FormComponent 
+                        label = "Ice Level"
+                        placeholder = "25% 50% 75%" 
+                        className="storeIceInput"
+                        setInput = {setIceLevel}
+                    /> 
+                    <Button variant="outline" onClick={sendData} className="storeAddButton"  href="/findStore">
+                        Add
+                    </Button>
+                    <Button variant="outline" href="/findStore" className="ml-2 storeCancelButton">
+                        Cancel
+                    </Button>
+                </Form>         
+            </Container>
+        )
+        
+    }
 
 export default AddStore;
