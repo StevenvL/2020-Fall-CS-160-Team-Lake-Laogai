@@ -98,7 +98,7 @@ function ForumPost(props) {
         )}
       </Row>
       {comments.map((entry, index) => (
-        <Row key={index} className="mt-1 mb-1">
+        <Row key={index} className="mt-1 mb-1 comment-display">
           <Col>
             <Card>
               <Card.Title></Card.Title>

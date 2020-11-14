@@ -1,3 +1,4 @@
+let comment="This is a very very very very long comment that is about this really super duper awesome post.";
 describe("Enter Health Forum", ()=>{
 	it("forum main successfully loaded", ()=>{
 		cy.visit("http://localhost:3000/forums");
@@ -27,20 +28,16 @@ describe("Comment", ()=>{
 	})
 	it("add comment", ()=>{
 		cy.get(".commentForm")
-		cy.get(".comment-field");
-		cy.get(".comment-submit");
+		cy.get(".comment-field").type(comment).should('have.value', comment);
+		cy.get(".comment-submit").click();
+	})
+	it("check comment is added", ()=>{
+		cy.get(".comment-display").last().contains(comment)
 	})
 })
-describe("Go back to main", ()=>{
-	it("go back to other post display in Health", ()=>{
-		cy.contains("Read other posts").click();
-		cy.url().should("eq", "http://localhost:3000/forums/Health");
-	})
-	it("check if read another forum button exist", ()=>{
-		cy.get(".readAnotherForum").should("exist");
-	})
+describe("Go back to main forum", ()=>{
 	it("Click the button and redirect to main", ()=>{
-		cy.contains("Read another forum").click()
+		cy.contains("Read other forum").click()
 		cy.url().should("eq", "http://localhost:3000/forums")
 	})
 })

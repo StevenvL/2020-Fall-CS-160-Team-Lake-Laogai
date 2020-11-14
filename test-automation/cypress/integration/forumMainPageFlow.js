@@ -16,4 +16,4 @@ describe("Enter Forum", ()=>{
 			cy.go("back");
 		})
 	})
-})
+}) 
