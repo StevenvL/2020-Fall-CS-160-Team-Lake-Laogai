@@ -2,11 +2,12 @@ import React , {useState} from 'react'
 import Axios from 'axios'
 import { Container , Form , Col , Button} from 'react-bootstrap'
 import FormComponent from '../components/FormComponent'
+import { useHistory } from "react-router-dom";
 import "../styling.css"
 
 
 function AddStore(){
-    
+
     // useState hook for React state and lifecycle features from function components
     const [storeName, setStoreName] = useState('')
     const [address, setAddress] = useState('')
@@ -16,14 +17,34 @@ function AddStore(){
     const [menu, setMenu] = useState('')
     const [sugarLevel, setSugarLevel] = useState('')
     const [iceLevel, setIceLevel] = useState('')
+    const [zipError, setZipError] = useState('')
 
     /* connection with backend insert api */
     const url = "http://localhost:8000/stores"
     const userInputData = {storeName: storeName, address: address, city: city, state: state, zip: zip, sugarLevel: sugarLevel, iceLevel: iceLevel, menu: menu}
-    const sendData = () => {
-        Axios.post(url, userInputData)  // post request to api
-        .then(res => console.log('Data Sent'))
-        .catch(err => console.log(err)) 
+    const sendData = (event) => {
+        let isValid = validate()
+        console.log(isValid)
+        if(!isValid){
+            event.preventDefault();
+        }else{
+            Axios.post(url, userInputData)  // post request to api
+                .then(res => console.log('Data Sent'))
+                .catch(err => console.log(err)) 
+        }  
+    }
+
+    // validate inputs
+    const validate = () => {
+        if(zip === ""){
+            setZipError("Enter Zip")
+            return false
+        }else if(!(!isNaN(zip) && !isNaN(parseInt(zip)))){ // check if zip is integer
+            setZipError("Zip must be number")
+            return false
+        }
+        setZipError("")
+        return true
     }
 
     return(
@@ -62,6 +83,7 @@ function AddStore(){
                             className="storeZipInput"
                             setInput={setZip}
                         />
+                        <p style={{ fontSize: 12, color: "red" }} className="zipError">{zipError}</p>
                     </Form.Row>
                     <FormComponent 
                         label="Menu"
@@ -81,7 +103,7 @@ function AddStore(){
                         className="storeIceInput"
                         setInput = {setIceLevel}
                     /> 
-                    <Button variant="outline" onClick={sendData} className="storeAddButton"  href="/findStore">
+                    <Button variant="outline" type="submit" onClick={sendData} className="storeAddButton"  href="/findStore">
                         Add
                     </Button>
                     <Button variant="outline" href="/findStore" className="ml-2 storeCancelButton">

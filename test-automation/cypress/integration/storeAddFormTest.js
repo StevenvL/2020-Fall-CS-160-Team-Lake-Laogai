@@ -44,6 +44,7 @@ describe('Testing Add a New Store Page', () => {
               .type(testStore.zip)
               .should('have.value', testStore.zip)
         })
+
         it('accepts store menu input', () => {
             cy.get('.storeMenuInput')
               .type(testStore.menu)
@@ -61,23 +62,49 @@ describe('Testing Add a New Store Page', () => {
         })   
     })
 
-    context("Store Add Form submission", () => {       
-        it("Add a new store on submit and return to find store page", () =>{          
+    context("Store Add Form submission", () => {          
+        it("Add a new store on submit and return to find store page", () =>{ 
             cy.get('.storeAddButton').click()
             cy.url().should('eq', findStorePage)            
         })
 
-        it("Test if the new store information was added", () => {
-            cy.request(addStoreAPI).as('backEndInformation')
-            cy.get('@backEndInformation').should((response) => {
-                let newestInputIndex = response.body.length;
-                expect(response.body[newestInputIndex-1]).to.have.property('storeName', testStore.storeName );
-                expect(response.body[newestInputIndex-1]).to.have.property('street', testStore.address );
-                expect(response.body[newestInputIndex-1]).to.have.property('menu', testStore.menu );
-            })
-         });
+        it("Test if the new store shows up", () => {
+            cy.get('.singleStoreDiv .storeName').last().contains(testStore.storeName)
+        })
     })
 
+    context("Not submitting form with invalid inputs", () => {
+        beforeEach(() => cy.visit(addStorePage))
+        it('zip is empty', () => {
+            cy.get('.storeAddButton').click()
+            cy.get('.zipError').contains('Enter Zip')
+            cy.url().should('eq', addStorePage)
+        })
+        it('zip is string', () => {
+            cy.get('.storeZipInput').type('dfjksdj')
+            cy.get('.storeAddButton').click()
+            cy.get('.zipError').contains('Zip must be number')
+            cy.url().should('eq', addStorePage)
+        })
+        it('zip is sepcial characters', () => {
+            cy.get('.storeZipInput').type('$%^$')
+            cy.get('.storeAddButton').click()
+            cy.get('.zipError').contains('Zip must be number')
+            cy.url().should('eq', addStorePage)
+        })
+        it('zip has speical character and number', () => {
+            cy.get('.storeZipInput').type('#888')
+            cy.get('.storeAddButton').click()
+            cy.get('.zipError').contains('Zip must be number')
+            cy.url().should('eq', addStorePage)
+        })
+        it('zip is alphanuemric', () => {
+            cy.get('.storeZipInput').type('9OOOO')
+            cy.get('.storeAddButton').click()
+            cy.get('.zipError').contains('Zip must be number')
+            cy.url().should('eq', addStorePage)
+        })
+    })
     context("Cancel store adding" , () => {   
         it("Return to Store Find Page when cancel button is clicked", () => {
             cy.visit(addStorePage)
