@@ -121,7 +121,9 @@ router.post("/", function (req, res) {
       if (err) {
         console.log(err);
       }
-      res.json(result);
+      res.status(201).send(`added a stores`);
+      // res.sendStatus(res.statusCode);
+      // res.json(result);
       // console.log("Number of records inserted: " + result.affectedRows);
     }
   );
