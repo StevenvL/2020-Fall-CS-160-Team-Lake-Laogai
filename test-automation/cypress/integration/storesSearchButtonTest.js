@@ -1,5 +1,4 @@
 const findStorePage = 'http://localhost:3000/findStore'
-// const storeViewPage = 'http://localhost:3000/stores/:storeName'
 
 const testStore = {
     storeName: 'Tiger Boba',
