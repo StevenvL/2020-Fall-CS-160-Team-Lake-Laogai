@@ -233,7 +233,7 @@ function FindStore() {
             placeholder="Find A Boba Store"
           />
           <button
-            className="btn btn-normal my-sm-0"
+            className="btn btn-normal my-sm-0 theSearchButton"
             id="searchButtonOuter"
             type="submit"
           >
