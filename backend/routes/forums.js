@@ -20,10 +20,12 @@ router.get("/posts", function (req, res) {
   });
 });
 
-router.get("/posts/:forumid", function (req, res, next) {
-  let forumid = req.params["forumid"];
+router.get("/posts/:category", function (req, res, next) {
+  console.log("test")
+  let category = req.params["category"];
+  console.log(category);
   connection.query(
-    `SELECT * FROM forum_posts WHERE forumID=${forumid}`,
+    `SELECT * FROM forum_posts WHERE (SELECT forumID from forums WHERE category_name='${category}')`,
     function (error, results, fields) {
       if (error) res.status(400);
       console.log(results);
@@ -31,6 +33,8 @@ router.get("/posts/:forumid", function (req, res, next) {
     }
   );
 });
+
+
 
 router.get("/post/:postid", function (req, res, next) {
   let postid = req.params["postid"];
