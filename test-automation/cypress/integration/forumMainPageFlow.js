@@ -1,4 +1,4 @@
-let categories=["Health", "Recipe", "Random", "Memes"];
+let categories=["Health", "Food", "Random", "Memes"];
 
 describe("Enter Forum", ()=>{
 	it("successfully loaded", ()=>{
