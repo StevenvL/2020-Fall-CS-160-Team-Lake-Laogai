@@ -24,6 +24,7 @@ function FindStore() {
   const [drinkTypes, setDrinkTypes] = useState([]);
   const [selectedDrinkTypes, setSelectedDrinkTypes] = useState([]);
   const [filteredStores, setFilteredStores] = useState([]);
+  const [disableSearchButton, setDisableSearchButton] = useState(false);
 
   useEffect(() => {
     /* get all stores from backend api */
@@ -236,6 +237,7 @@ function FindStore() {
             className="btn btn-normal my-sm-0 theSearchButton"
             id="searchButtonOuter"
             type="submit"
+            disabled={disableSearchButton}
           >
             <div className="searchButton"></div>
           </button>
@@ -247,6 +249,7 @@ function FindStore() {
           foundStore={foundStore}
           setFoundStore={setFoundStore}
           activeFilteredStoreIndex={activeFilteredStoreIndex}
+          setDisableSearchButton={setDisableSearchButton}
         />
       </Jumbotron>
 
