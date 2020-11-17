@@ -24,7 +24,7 @@ function ForumPosts(props) {
     };
     getPosts();
   }, []);
-
+console.log(props)
   const categoryName = props.location.category;
   const allPosts = posts.map((post) => {
     return (

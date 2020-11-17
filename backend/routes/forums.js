@@ -65,7 +65,6 @@ router.post("/post/comment", function (req, res, next) {
       if (error) {
         console.log(error);
       }
-      console.log(results);
       res.json(results);
     }
   );
