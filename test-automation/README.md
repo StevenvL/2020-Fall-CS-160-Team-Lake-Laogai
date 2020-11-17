@@ -40,7 +40,7 @@
       Automated test to enter all avaliable categories on the forum main page
 
 *    ifStoreDivInFindStoreIsClickable.js\
-
+      Automated test for the Tiger Boba store div to see if it is clickable and if it can go to its detailed store info page
 
 *    storeAddFormTest.js\
       Automated test for testing add store form
