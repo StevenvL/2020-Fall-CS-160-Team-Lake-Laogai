@@ -19,7 +19,7 @@ function SearchSuggestionList({
     setFoundStore(true);
   };
 
-  let ifDisableSearchButton = ifTypedWords && filteredStores.length == 0 ? true : false;
+  let ifDisableSearchButton = (!ifTypedWords) || (ifTypedWords && filteredStores.length == 0) ? true : false;
   setDisableSearchButton(ifDisableSearchButton)
 
   const lists =
