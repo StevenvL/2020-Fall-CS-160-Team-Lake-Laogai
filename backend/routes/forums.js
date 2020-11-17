@@ -63,13 +63,15 @@ router.get("/posts/comments/:postid", function (req, res, next) {
 router.post("/post/comment", function (req, res, next) {
   let postid = req.body.postID;
   let comment = req.body.comment;
+  if(comment === "" || comment === undefined) return res.json({response: "error"});
+
   connection.query(
     `INSERT INTO forum_reply (postID, replyDescription) VALUES (${postid}, '${comment}');`,
     function (error, results, fields) {
       if (error) {
         console.log(error);
       }
-      res.json(results);
+      res.json({response: "ok"});
     }
   );
 });

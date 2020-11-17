@@ -1,3 +1,4 @@
+Cypress.config("waitAfterEachCommand", 2000)
 let comment="This is a very very very very long comment that is about this really super duper awesome post.";
 describe("Enter Health Forum", ()=>{
 	it("forum main successfully loaded", ()=>{
