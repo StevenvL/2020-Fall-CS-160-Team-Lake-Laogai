@@ -157,7 +157,7 @@ function FindStore() {
         return (
           <div className="singleStoreDiv" key={index}>
             <div>
-              <Link to={`/stores/${store.storeName}`} className="storeName">{store.storeName}</Link>
+              <Link to={`/stores/${store.storeName}`} className={`storeName store${index}`}>{store.storeName}</Link>
               <p>
                 <span>Address: </span>
                 {store.street}, {store.city}, {store.state}
@@ -194,7 +194,7 @@ function FindStore() {
         return (
           <div className="singleStoreDiv" key={index}>
             <div>
-              <Link to={`/stores/${store.storeName}`} className="storeName">{store.storeName}</Link>
+              <Link to={`/stores/${store.storeName}`} className={`storeName store${index}`}>{store.storeName}</Link>
               <p>
                 <span>Address: </span>
                 {store.street}, {store.city}, {store.state}
