@@ -1,13 +1,23 @@
 const mysql = require('mysql');
 
-
+// for docker loaclhost
 let connection = mysql.createConnection({
-  host: '127.0.0.1',
+  host: 'host.docker.internal',
   user: 'pokeboba',
   password: 'boba1234',
   database: 'PokeBobaDB',
   port: '3306'
 });
+
+// // for local computer localhost
+// let connection = mysql.createConnection({
+//   host: '127.0.0.1',
+//   user: 'pokeboba',
+//   password: 'boba1234',
+//   database: 'PokeBobaDB',
+//   port: '3306'
+// });
+
 
 connection.connect(function(err) {
     if (err) {
