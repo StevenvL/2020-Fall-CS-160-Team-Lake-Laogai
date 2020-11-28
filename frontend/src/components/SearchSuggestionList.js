@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../styling.css"
 
 function SearchSuggestionList({
   filteredStores,
@@ -7,6 +8,7 @@ function SearchSuggestionList({
   foundStore,
   setFoundStore,
   activeFilteredStoreIndex,
+  setDisableSearchButton
 }) {
   // console.log("filteredStores", filteredStores);
   // console.log("ifTypedWords", ifTypedWords);
@@ -16,6 +18,9 @@ function SearchSuggestionList({
     setSearchStore(e.target.innerText);
     setFoundStore(true);
   };
+
+  let ifDisableSearchButton = (!ifTypedWords) || (ifTypedWords && filteredStores.length == 0) ? true : false;
+  setDisableSearchButton(ifDisableSearchButton)
 
   const lists =
     ifTypedWords && filteredStores.length == 0 ? (

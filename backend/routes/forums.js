@@ -20,17 +20,21 @@ router.get("/posts", function (req, res) {
   });
 });
 
-router.get("/posts/:forumid", function (req, res, next) {
-  let forumid = req.params["forumid"];
+router.get("/posts/:category", function (req, res, next) {
+  console.log("test")
+  let category = req.params["category"];
+  console.log(category);
   connection.query(
-    `SELECT * FROM forum_posts WHERE forumID=${forumid}`,
+    `SELECT * FROM forum_posts WHERE (SELECT forumID from forums WHERE category_name='${category}')`,
     function (error, results, fields) {
-      if (error) throw error;
+      if (error) res.status(400);
       console.log(results);
       res.json(results);
     }
   );
 });
+
+
 
 router.get("/post/:postid", function (req, res, next) {
   let postid = req.params["postid"];
@@ -59,14 +63,15 @@ router.get("/posts/comments/:postid", function (req, res, next) {
 router.post("/post/comment", function (req, res, next) {
   let postid = req.body.postID;
   let comment = req.body.comment;
+  if(comment === "" || comment === undefined) return res.json({response: "error"});
+
   connection.query(
     `INSERT INTO forum_reply (postID, replyDescription) VALUES (${postid}, '${comment}');`,
     function (error, results, fields) {
       if (error) {
         console.log(error);
       }
-      console.log(results);
-      res.json(results);
+      res.json({response: "ok"});
     }
   );
 });

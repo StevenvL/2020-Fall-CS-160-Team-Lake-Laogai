@@ -2,18 +2,20 @@ import React, { useEffect, useState } from "react";
 import { Link, Redirect } from "react-router-dom";
 import axios from "axios";
 import { Container, Button } from "react-bootstrap";
+import "../styling.css"
 
 function ForumPosts(props) {
   const [posts, setPosts] = useState([]);
   
   const forumID = props.location.forumID;
+  const category = props.match.params.category;
   useEffect(() => {
     console.log("ForumPosts props", props);
     /* get all stores from backend api */
     const getPosts = async () => {
       try {
         const response = await axios(
-          `http://localhost:8000/forums/posts/${forumID}`
+          `http://localhost:8000/forums/posts/${category}`
         );
         setPosts(response.data);
         console.log("getPosts", response.data);
@@ -23,7 +25,6 @@ function ForumPosts(props) {
     };
     getPosts();
   }, []);
-
   const categoryName = props.location.category;
   const allPosts = posts.map((post) => {
     return (
