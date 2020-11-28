@@ -56,6 +56,7 @@ root
       |_Owner.js
       |_SignUp.js
       |_StoreView.js
+  |_Dockerfile
   
 |_backend
   |_app.js
@@ -65,6 +66,7 @@ root
     |_stores.js
     |_index.js
     |_forums.js 
+  |_Dockerfile
 
 |_test-automation
   |_integration
