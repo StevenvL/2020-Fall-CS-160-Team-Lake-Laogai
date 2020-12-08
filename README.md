@@ -39,6 +39,7 @@ root
       |_InputLabel.js
       |_MenuCardCompont.js
       |_RatingStarOff.js
+      |_RatingStarOn.js
       |_SearchSuggestion.js
       |_StoreRating.js
       |_UserInput.js
@@ -75,6 +76,9 @@ root
     |_displayForumPostTest.js
     |_findStoreUserInput.js
     |_store-add-form.spec.js
+
+|_docker
+  |_README.md
   
 ```
 
@@ -97,5 +101,5 @@ Click on one of the tests and it should open a new chrome tab controlled by cypr
 It will run through all the tests and asserts described in the file
 
 ## Docker Image
-
+Please see the README file in the folder called 'docker'
 
