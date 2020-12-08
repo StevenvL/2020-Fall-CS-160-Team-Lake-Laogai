@@ -56,6 +56,7 @@ root
       |_Owner.js
       |_SignUp.js
       |_StoreView.js
+  |_Dockerfile
   
 |_backend
   |_app.js
@@ -65,6 +66,7 @@ root
     |_stores.js
     |_index.js
     |_forums.js 
+  |_Dockerfile
 
 |_test-automation
   |_integration
@@ -93,3 +95,7 @@ Cd to ```test-automation```
 Run command ```./node_modules/.bin/cypress open ```
 Click on one of the tests and it should open a new chrome tab controlled by cypress.
 It will run through all the tests and asserts described in the file
+
+## Docker Image
+
+
